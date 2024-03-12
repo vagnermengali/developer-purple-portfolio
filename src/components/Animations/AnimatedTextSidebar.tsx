@@ -1,28 +1,35 @@
 import { motion } from "framer-motion";
-
+import { AnimatePresence } from "framer-motion"
 import { ChildrenProps } from "@/interfaces/ChildrenProps/ChildrenProps";
+import { useContext } from "react";
+import { GlobalContext } from "@/context/globalContext";
 
 const AnimatedCharactersSidebar = ({ children }: ChildrenProps) => {
+    const { isSideBarVisible } = useContext(GlobalContext)
+
     const item = {
         hidden: {
-            y: "200%",
+            y: 200,
             transition: {
                 ease: [0.455, 0.03, 0.515, 0.955],
-                duration: 0.85
+                duration: 0.4,
+                staggerChildren: 0.025
             }
         },
         visible: {
             y: 0,
             transition: {
                 ease: [0.455, 0.03, 0.515, 0.955],
-                duration: 0.75
+                duration: 1,
+                staggerChildren: 0.025,
+                delay: .2
             }
-        }
-    };
-
-    const container = {
-        visible: {
+        },
+        exit: {
+            y: 200,
             transition: {
+                ease: [0.455, 0.03, 0.515, 0.955],
+                duration: .4,
                 staggerChildren: 0.025
             }
         }
@@ -30,15 +37,33 @@ const AnimatedCharactersSidebar = ({ children }: ChildrenProps) => {
 
     return (
         <>
-            <motion.li initial="hidden" whileInView={"visible"} variants={container}>
-                <div>
-                    <span style={{ overflow: "hidden", display: "inline-block" }}>
-                        <motion.span style={{ display: "inline-block" }} variants={item}>
-                            {children}
-                        </motion.span>
-                    </span>
-                </div>
-            </motion.li>
+            <AnimatePresence>
+                {children && (
+                    <motion.div
+                        initial="hidden"
+                        animate={isSideBarVisible ? "visible" : "hidden"}
+                        exit="exit"
+                    >
+                        <div>
+                            <span
+                                style={{
+                                    overflow: "hidden",
+                                    display: "inline-block"
+                                }}
+                            >
+                                <motion.span
+                                    style={{
+                                        display: "inline-block"
+                                    }}
+                                    variants={item}
+                                >
+                                    {children}
+                                </motion.span>
+                            </span>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     );
 };
