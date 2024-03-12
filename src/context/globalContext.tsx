@@ -17,7 +17,7 @@ const GlobalProvider = ({ children }: ChildrenProps) => {
     const router = useRouter();
 
     const showSideBar = () => setIsSideBarVisible(!isSideBarVisible);
-    console.log(isSideBarVisible);
+    
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth < 600);

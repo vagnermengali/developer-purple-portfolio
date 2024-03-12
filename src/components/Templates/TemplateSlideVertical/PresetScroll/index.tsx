@@ -53,7 +53,7 @@ const TemplateSlideVertical = ({
               </AnimatedCharactersDetailsLeft>
               <Bars />
               <AnimatedCharactersDetailsLeft duration={1.1}>
-                <div className="w-[80%] h-min sm:h-[5.25rem] pl-60 mb-[.7rem] sm:mb-2 lg:mb-8">
+                <div className="w-[80%] h-min sm:h-[5.25rem] pr-60 mb-[.7rem] sm:mb-2 lg:mb-8">
                   <h3 className="whitespace-normal break-all tracking-widest leading-[2.625rem] text-white font-light text-sm sm:text-[1.375rem] lg:text-[1.75rem]"> {details} </h3>
                 </div>
               </AnimatedCharactersDetailsLeft>
@@ -123,15 +123,15 @@ const TemplateSlideVertical = ({
         {home ? (
           <>
             <div className="w-full sm:w-[80%] h-full flex relative">
-              <div className="clip-custom w-full h-3/4 sm:h-full left-0 sm:-left-[50px] relative bg-cover bg-no-repeat bg-center z-10" style={{ backgroundImage: `url(${img})` }} />
+              <div className="clip-custom w-full h-3/4 sm:h-full left-0 sm:left-[50px] relative bg-cover bg-no-repeat bg-center z-10" style={{ backgroundImage: `url(${img})` }} />
             </div>
           </>
         ) : (
           <>
             <motion.div
-              className="flex static sm:relative mb-12 sm:mb-0 "
-              initial={{ scale: isMobile ? 1 : .7, width: isMobile ? "80%" : "67%", right: isMobile ? "0" : "10%" }}
-              whileInView={{ scale: 1, right: isMobile ? "0" : "10%", width: isMobile ? "80%" : "67%" }}
+              className="flex static sm:relative mb-12 sm:mb-0 overflow-hidden "
+              initial={{ scale: isMobile ? 1 : .7, width: isMobile ? "80%" : "67%", right: isMobile ? "0" : "-6%" }}
+              whileInView={{ scale: 1, right: isMobile ? "0" : "-6%", width: isMobile ? "80%" : "67%" }}
               transition={{ duration: 0.3, delay: 0.1, type: "spring", damping: 35 }}
             >
               {!home ? (
