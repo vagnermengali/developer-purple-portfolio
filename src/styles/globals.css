@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gradient2 text-white;
+}
+
+@layer utilities {
+  .clip-custom {
+    clip-path: polygon(31% 0, 100% 25%, 61% 100%, 0 93%);
+  }
+}

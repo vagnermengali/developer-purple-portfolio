@@ -1,0 +1,71 @@
+{
+  "name": "Portfolio | Vagner Mengali",
+  "short_name": "Portfolio",
+  "description": "Portfólio pessoal de Vagner Mengali, mostrando seu trabalho e experiência.",
+  "author": "Vagner Mengali",
+  "lang": "pt-BR",
+  "theme_color": "#101010",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon32x32.webp",
+      "sizes": "32x32",
+      "type": "image/webp",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/favicon48x48.webp",
+      "sizes": "48x48",
+      "type": "image/webp",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/favicon96x96.webp",
+      "sizes": "96x96",
+      "type": "image/webp",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/favicon144x144.webp",
+      "sizes": "144x144",
+      "type": "image/webp",
+      "purpose": "maskable any"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "web",
+      "url": "https://vagnermengali.com",
+      "id": "com.vagnermengali.portfolio"
+    }
+  ],
+  "manifest_version": 3,
+  "permissions": ["notifications"],
+  "offline_enabled": true,
+  "routing": {
+    "dynamic": true,
+    "static": true
+  },
+  "i18n": {
+    "locales": {
+      "en": {
+        "name": "Portfolio | Vagner Mengali",
+        "description": "Personal portfolio of Vagner Mengali, showcasing his work and experience."
+      }
+    },
+    "default_locale": "pt-BR"
+  },
+  "navigation": {
+    "home": "/",
+    "about": "/about",
+    "work": "/work"
+  }
+}
