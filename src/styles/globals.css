@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gradient2 text-white;
+  @apply bg-brand3 text-white;
 }
 
 @layer utilities {
