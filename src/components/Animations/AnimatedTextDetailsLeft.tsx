@@ -31,8 +31,8 @@ const AnimatedCharactersDetailsLeft = ({ children, duration }: ChildrenDurationP
     return (
         <motion.div initial="hidden" whileInView={"visible"} variants={container}>
             <div>
-                <span style={{ overflow: "hidden", display: "inline-block" }}>
-                    <motion.span style={{ display: "inline-block" }} variants={item}>
+                <span style={{ overflow: "hidden", display: "block" }}>
+                    <motion.span style={{ display: "block" }} variants={item}>
                         {children}
                     </motion.span>
                 </span>

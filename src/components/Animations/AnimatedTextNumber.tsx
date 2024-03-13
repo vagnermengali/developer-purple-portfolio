@@ -31,8 +31,8 @@ const AnimatedCharactersNumber = ({ children }: ChildrenProps) => {
     return (
         <motion.div initial="hidden" whileInView={"visible"} variants={container}>
             <div style={{ position: "absolute", right: "-7.5490%", bottom: " 7%", zIndex: 4 }}>
-                <span style={{ overflow: "hidden", display: "inline-block" }}>
-                    <motion.span style={{ display: "inline-block" }} variants={item}>
+                <span style={{ overflow: "hidden", display: "block" }}>
+                    <motion.span style={{ display: "block" }} variants={item}>
                         {children}
                     </motion.span>
                 </span>

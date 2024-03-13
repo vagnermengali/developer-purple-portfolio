@@ -47,12 +47,12 @@ const AnimatedCharactersSidebar = ({ children }: ChildrenProps) => {
                         <span
                             style={{
                                 overflow: "hidden",
-                                display: "inline-block"
+                                display: "block"
                             }}
                         >
                             <motion.span
                                 style={{
-                                    display: "inline-block"
+                                    display: "block"
                                 }}
                                 variants={item}
                             >

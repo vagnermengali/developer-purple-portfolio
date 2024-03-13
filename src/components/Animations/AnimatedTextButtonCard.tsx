@@ -50,8 +50,8 @@ const AnimatedTextButtonCard = ({ children, duration, hover }: ChildrenDurationP
             {hover ? (
                 <motion.div initial="hidden1" animate={"visible1"} variants={container}>
                     <div>
-                        <span style={{ overflow: "hidden", display: "inline-block", width: "100%", }}>
-                            <motion.span style={{ display: "inline-block", width: "100%", }} variants={itemDown}>
+                        <span style={{ overflow: "hidden", display: "block", width: "100%", }}>
+                            <motion.span style={{ display: "block", width: "100%", }} variants={itemDown}>
                                 {children}
                             </motion.span>
                         </span>
@@ -60,8 +60,8 @@ const AnimatedTextButtonCard = ({ children, duration, hover }: ChildrenDurationP
             ) : (
                 <motion.div initial="hidden2" animate={"visible2"} variants={container}>
                     <div>
-                        <span style={{ overflow: "hidden", display: "inline-block", width: "100%", }}>
-                            <motion.span style={{ display: "inline-block", width: "100%", }} variants={itemBottom}>
+                        <span style={{ overflow: "hidden", display: "block", width: "100%", }}>
+                            <motion.span style={{ display: "block", width: "100%", }} variants={itemBottom}>
                                 {children}
                             </motion.span>
                         </span>

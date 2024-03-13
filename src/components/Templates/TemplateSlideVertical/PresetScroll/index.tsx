@@ -38,7 +38,7 @@ const TemplateSlideVertical = ({
   const { setAnimationImage, isMobile, router } = useContext(GlobalContext);
 
   return (
-    <section className={`${home ? 'justify-center': 'justify-start sm:justify-center'} w-screen h-screen overflow-hidden flex items-end flex-col justify-start sm:justify-center relative`}>
+    <section className={`${home ? 'justify-center': 'justify-start sm:justify-center'} w-screen h-dvh overflow-hidden flex items-end flex-col justify-start sm:justify-center relative`}>
       <motion.div
         className="flex justify-end sm:justify-center"
         initial={{ height: "100%", width: "100%" }}
@@ -52,7 +52,7 @@ const TemplateSlideVertical = ({
           damping: home ? 0 : 15
         }}
       >
-        <div className={`${home ? 'top-72 sm:top-1/4': 'top-60 sm:top-28'} left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
+        <div className={`${home ? 'top-96 sm:top-1/4': 'top-80 sm:top-28'} left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
           {!home && details && !link ? (
             <>
               <AnimatedCharactersDetailsLeft duration={1}>
@@ -61,7 +61,7 @@ const TemplateSlideVertical = ({
               <Bars />
               <AnimatedCharactersDetailsLeft duration={1.1}>
                 <div className="w-full sm:w-3/4 h-min sm:h-20 pr-36 sm:pr-36 mb-3 sm:mb-2 lg:mb-8">
-                  <h3 className="whitespace-normal break-all tracking-widest leading-10 text-white font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
+                  <h3 className="whitespace-normal break-all tracking-widest leading-normal text-white font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
                 </div>
               </AnimatedCharactersDetailsLeft>
             </>
@@ -79,7 +79,7 @@ const TemplateSlideVertical = ({
               </AnimatedCharactersDetailsLeft>
               <Bars />
               <AnimatedCharactersDetailsLeft duration={1.1}>
-                <h3 className="whitespace-normal break-all tracking-widest leading-10 text-white font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
+                <h3 className="whitespace-normal break-all tracking-widest leading-normal text-white font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
               </AnimatedCharactersDetailsLeft>
             </>
           )}
@@ -99,25 +99,25 @@ const TemplateSlideVertical = ({
             <>
               {email && (
                 <AnimatedCharactersDetailsLeft duration={1.3}>
-                  <Link className="text-sm sm:text-3xl hover:text-brand5 mb-6 sm:mb-4 leading-6 sm:leading-10 text-white tracking-widest duration-300 no-underline" href={`mailto:${email}`} target="_blank" >
+                  <Link className="text-sm sm:text-3xl hover:text-brand5 mb-6 sm:mb-4 leading-6 sm:leading-normal text-white tracking-widest duration-300 no-underline" href={`mailto:${email}`} target="_blank" >
                     {email}
                   </Link>
                 </AnimatedCharactersDetailsLeft>
               )}
               {github && (
                 <AnimatedCharactersDetailsLeft duration={1.4}>
-                  <Link className="text-sm sm:text-3xl hover:text-brand5 mb-6 sm:mb-4 leading-6 sm:leading-10 text-white tracking-widest duration-300 no-underline" href={`${github}`} target="_blank" > GitHub </Link>
+                  <Link className="text-sm sm:text-3xl hover:text-brand5 mb-6 sm:mb-4 leading-6 sm:leading-normal text-white tracking-widest duration-300 no-underline" href={`${github}`} target="_blank" > GitHub </Link>
                 </AnimatedCharactersDetailsLeft>
               )}
               <AnimatedCharactersDetailsLeft duration={1.5}>
                 <div className="flex gap-3 sm:gap-4 lg:gap-7">
                   {linkedin && (
-                    <Link className="text-sm sm:text-xl lg:text-3xl text-white hover:text-brand5 text-start duration-300 leading-10 no-underline align-top" href={`${linkedin}`} target="_blank" aria-label="linkedin" >
+                    <Link className="text-sm sm:text-xl lg:text-3xl text-white hover:text-brand5 text-start duration-300 leading-normal no-underline align-top" href={`${linkedin}`} target="_blank" aria-label="linkedin" >
                       <FaLinkedinIn />
                     </Link>
                   )}
                   {instagram && (
-                    <Link className="text-sm sm:text-xl lg:text-3xl text-white hover:text-brand5 text-start duration-300 leading-10 no-underline align-top" href={`${instagram}`} target="_blank" aria-label="instagram" >
+                    <Link className="text-sm sm:text-xl lg:text-3xl text-white hover:text-brand5 text-start duration-300 leading-normal no-underline align-top" href={`${instagram}`} target="_blank" aria-label="instagram" >
                       <FaInstagram />
                     </Link>
                   )}
@@ -136,9 +136,9 @@ const TemplateSlideVertical = ({
         ) : (
           <>
             <motion.div
-              className="flex static sm:relative mb-12 sm:mb-0"
-              initial={{ scale: isMobile ? 1 : .7, width: isMobile ? "100%" : "67%", right: isMobile ? "0" : "-6%" }}
-              whileInView={{ scale: 1, right: isMobile ? "0" : "-6%", width: isMobile ? "100%" : "67%" }}
+              className="flex static sm:relative my-auto mx-auto sm:my-0 sm:mx-0 h-3/4 sm:h-auto"
+              initial={{ scale: isMobile ? 1 : .7, width: isMobile ? "80%" : "67%", right: isMobile ? "0" : "-6%" }}
+              whileInView={{ scale: 1, right: isMobile ? "0" : "-6%", width: isMobile ? "80%" : "67%" }}
               transition={{ duration: 0.3, delay: 0.1, type: "spring", damping: 35 }}
             >
               {!home ? (

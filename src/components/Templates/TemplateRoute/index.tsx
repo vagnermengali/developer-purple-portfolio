@@ -19,7 +19,7 @@ const TemplateRoute = ({ image, children, title, details, textButton, email, git
 
   return (
     <section className="w-screen h-full flex flex-col bg-gradient2">
-      <div className="w-full min-h-screen flex justify-center items-center relative overflow-hidden bg-brand2 flex-row">
+      <div className="w-full min-h-dvh flex justify-center items-center relative overflow-hidden bg-brand2 flex-row">
         <div className="w-1/2 h-full flex justify-center flex-col z-30 absolute sm:flex-col left-5 sm:left-10 lg:left-44 top-1/4 sm:top-auto">
           <AnimatedCharactersDetailsLeft duration={1} animate>
             <h2 className="text-white leading-none tracking-widest font-medium w-full text-4xl sm:text-6xl lg:text-8xl sm:whitespace-nowrap">{title}</h2>
@@ -41,7 +41,7 @@ const TemplateRoute = ({ image, children, title, details, textButton, email, git
           exit={{ transition: { duration: 100 } }}
           transition={{ duration: 1, type: "spring", delay: .2, damping: 15, staggerChildren: 0.5 }}
         >
-          <div className="w-full h-96 sm:h-screen bg-cover bg-no-repeat bg-center" style={{ backgroundImage: `url(${image})` }} />
+          <div className="w-full h-96 sm:h-dvh bg-cover bg-no-repeat bg-center" style={{ backgroundImage: `url(${image})` }} />
         </motion.div>
       </div>
       {children}
