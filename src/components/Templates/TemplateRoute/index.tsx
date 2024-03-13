@@ -31,7 +31,7 @@ const TemplateRoute = ({ image, children, title, details, textButton, email, git
             </div>
           </AnimatedCharactersDetailsLeft>
           <AnimatedTextButton duration={1.2} width="calc(100vw - 1.25rem)" animate>
-            <Link className="w-40 h-11 text-xs relative top-1/2 left-2/4 mb-0 -translate-x-1/2 sm:w-40 sm:h-12 sm:text-sm hover:bg-brand1 hover:border-2 hover:border-solid hover:border-brand1 lg:w-48 lg:h-12 lg:text-base sm:top-auto sm:left-auto sm:translate-x-0 flex items-center justify-center text-white cursor-pointer no-underline font-extrabold whitespace-nowrap bg-transparent text-center leading-1 border-2 border-solid border-brand1 transition-all duration-300 ease-linear px-8 py-1" href={`${link}`} target="_blank">{textButton}</Link>
+            <Link className="w-40 h-11 text-xs relative top-1/2 left-2/4 mb-0 -translate-x-1/2 sm:w-40 sm:h-12 sm:text-sm hover:bg-brand1 hover:border-2 hover:border-solid hover:border-brand1 lg:w-48 lg:h-12 lg:text-base sm:top-auto sm:left-auto sm:translate-x-0 flex items-center justify-center text-white cursor-pointer no-underline font-extrabold whitespace-nowrap bg-transparent text-center leading-3 border-2 border-solid border-brand1 transition-all duration-300 ease-linear px-8 py-1" href={`${link}`} target="_blank">{textButton}</Link>
           </AnimatedTextButton>
         </div>
         <motion.div
@@ -41,7 +41,7 @@ const TemplateRoute = ({ image, children, title, details, textButton, email, git
           exit={{ transition: { duration: 100 } }}
           transition={{ duration: 1, type: "spring", delay: .2, damping: 15, staggerChildren: 0.5 }}
         >
-          <div className="w-full h-[65vh] sm:h-screen bg-cover bg-no-repeat bg-center" style={{ backgroundImage: `url(${image})` }} />
+          <div className="w-full h-96 sm:h-screen bg-cover bg-no-repeat bg-center" style={{ backgroundImage: `url(${image})` }} />
         </motion.div>
       </div>
       {children}

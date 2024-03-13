@@ -63,7 +63,7 @@ const Card = (props: any) => {
         transition={{ duration: 0.5, delay: 0.1, type: "spring", damping: 35 }}
       >
         <AnimatedTexDown>
-          <h2 className="text-[calc(1rem + 0.5vw)]">{name}</h2>
+          <h2 className="text-xl">{name}</h2>
           <div className="flex items-center justify-end gap-2 overflow-auto w-1/2 sm:w-full scrollbar-none">
             {screens.desktop && <FaDesktop className="icon" />}
             {screens.mobile && <FaMobileAlt className="icon" />}

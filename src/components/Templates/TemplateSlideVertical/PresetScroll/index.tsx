@@ -38,7 +38,7 @@ const TemplateSlideVertical = ({
   const { setAnimationImage, isMobile, router } = useContext(GlobalContext);
 
   return (
-    <section className="w-screen h-[100vh] sm:h-screen overflow-hidden flex items-center sm:items-end flex-col justify-start sm:justify-center relative">
+    <section className="w-screen h-screen overflow-hidden flex items-center sm:items-end flex-col justify-start sm:justify-center relative">
       <motion.div
         className="flex justify-end sm:justify-center"
         initial={{ height: "100%", width: "100%" }}
@@ -52,41 +52,41 @@ const TemplateSlideVertical = ({
           damping: home ? 0 : 15
         }}
       >
-        <div className="top-[60%] sm:top-[27%] left-5 sm:left-[11%] flex flex-col justify-center absolute z-20">
+        <div className="top-2/3 sm:top-28 left-5 sm:left-44 flex flex-col justify-center absolute z-20">
           {!home && details && !link ? (
             <>
               <AnimatedCharactersDetailsLeft duration={1}>
-                <h2 className="w-[21.875rem] sm:w-[31.25rem] lg:w-[62.5rem] text-4xl sm:text-[4rem] lg:text-[6.875rem] text-white font-medium leading-none tracking-widest"> {title} </h2>
+                <h2 className="w-80  lg:w-5/6 text-4xl sm:text-6xl lg:text-8xl text-white font-medium leading-none tracking-widest"> {title} </h2>
               </AnimatedCharactersDetailsLeft>
               <Bars />
               <AnimatedCharactersDetailsLeft duration={1.1}>
-                <div className="w-[80%] h-min sm:h-[5.25rem] pr-60 mb-[.7rem] sm:mb-2 lg:mb-8">
-                  <h3 className="whitespace-normal break-all tracking-widest leading-[2.625rem] text-white font-light text-sm sm:text-[1.375rem] lg:text-[1.75rem]"> {details} </h3>
+                <div className="w-full sm:w-3/4 h-min sm:h-20 pr-60 mb-3 sm:mb-2 lg:mb-8">
+                  <h3 className="whitespace-normal break-all tracking-widest leading-10 text-white font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
                 </div>
               </AnimatedCharactersDetailsLeft>
             </>
           ) : !home && link ? (
             <>
               <AnimatedCharactersDetailsLeft duration={1}>
-                <h2 className="w-[62.5rem] text-4xl sm:text-[4rem] lg:text-[6.875rem] text-white font-medium leading-none tracking-widest"> {title} </h2>
+                <h2 className="w-5/6 text-4xl sm:text-6xl lg:text-8xl text-white font-medium leading-none tracking-widest"> {title} </h2>
               </AnimatedCharactersDetailsLeft>
               <Bars />
             </>
           ) : (
             <>
               <AnimatedCharactersDetailsLeft duration={1}>
-                <h2 className="w-[21.875rem] sm:w-[31.25rem] lg:w-[62.5rem] text-4xl sm:text-[4rem] lg:text-[6.875rem] text-white font-medium leading-none tracking-widest"> {title} </h2>
+                <h2 className="w-80  lg:w-5/6 text-4xl sm:text-6xl lg:text-8xl text-white font-medium leading-none tracking-widest"> {title} </h2>
               </AnimatedCharactersDetailsLeft>
               <Bars />
               <AnimatedCharactersDetailsLeft duration={1.1}>
-                <h3 className="whitespace-normal break-all tracking-widest leading-[2.625rem] text-white font-light text-sm sm:text-[1.375rem] lg:text-[1.75rem]"> {details} </h3>
+                <h3 className="whitespace-normal break-all tracking-widest leading-10 text-white font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
               </AnimatedCharactersDetailsLeft>
             </>
           )}
           {home ? null : !link ? (
             <AnimatedTextButton duration={1.2} width="calc(100vw - 1.25rem)">
               <button
-                className="w-[9.6875rem] h-11 text-xs relative top-1/2 left-2/4 mb-0 -translate-x-1/2 sm:w-40 sm:h-12 sm:text-[.8rem] hover:bg-brand1 hover:border-2 hover:border-solid hover:border-brand1 lg:w-[11.75rem] lg:h-[3.375rem] lg:text-[.9375rem] sm:top-auto sm:left-auto sm:translate-x-0 flex items-center justify-center text-white cursor-pointer no-underline font-extrabold whitespace-nowrap bg-transparent text-center leading-[.1125rem] border-[.125rem] border-solid border-brand1 transition-all duration-300 ease-linear px-8 py-[1.125rem]"
+                className="w-40 h-11 text-xs relative top-1/2 left-2/4 mb-0 -translate-x-1/2 sm:w-40 sm:h-12 sm:text-sm hover:bg-brand1 hover:border-2 hover:border-solid hover:border-brand1 lg:w-44 lg:h-12 lg:text-base sm:top-auto sm:left-auto sm:translate-x-0 flex items-center justify-center text-white cursor-pointer no-underline font-extrabold whitespace-nowrap bg-transparent text-center leading-3 border-2 border-solid border-brand1 transition-all duration-300 ease-linear px-8 py-4"
                 onClick={() => {
                   router.push(`/${section}`);
                   setAnimationImage(true);
@@ -99,25 +99,25 @@ const TemplateSlideVertical = ({
             <>
               {email && (
                 <AnimatedCharactersDetailsLeft duration={1.3}>
-                  <Link className="text-sm sm:text-[1.375rem] hover:text-brand5 mb-[1.4rem] sm:mb-4 leading-[1.4rem] sm:leading-[2.625rem] text-white tracking-widest duration-300 no-underline" href={`mailto:${email}`} target="_blank" >
+                  <Link className="text-sm sm:text-3xl hover:text-brand5 mb-6 sm:mb-4 leading-6 sm:leading-10 text-white tracking-widest duration-300 no-underline" href={`mailto:${email}`} target="_blank" >
                     {email}
                   </Link>
                 </AnimatedCharactersDetailsLeft>
               )}
               {github && (
                 <AnimatedCharactersDetailsLeft duration={1.4}>
-                  <Link className="text-sm sm:text-[1.375rem] hover:text-brand5 mb-[1.4rem] sm:mb-4 leading-[1.4rem] sm:leading-[2.625rem] text-white tracking-widest duration-300 no-underline" href={`${github}`} target="_blank" > GitHub </Link>
+                  <Link className="text-sm sm:text-3xl hover:text-brand5 mb-6 sm:mb-4 leading-6 sm:leading-10 text-white tracking-widest duration-300 no-underline" href={`${github}`} target="_blank" > GitHub </Link>
                 </AnimatedCharactersDetailsLeft>
               )}
               <AnimatedCharactersDetailsLeft duration={1.5}>
-                <div className="flex gap-[.625rem] sm:gap-[.9375rem] lg:gap-[1.875rem]">
+                <div className="flex gap-3 sm:gap-4 lg:gap-7">
                   {linkedin && (
-                    <Link className="text-sm sm:text-[1.375rem] lg:text-[1.75rem] text-white hover:text-brand5 text-start duration-300 leading-[2.625rem] no-underline align-top" href={`${linkedin}`} target="_blank" aria-label="linkedin" >
+                    <Link className="text-sm sm:text-xl lg:text-3xl text-white hover:text-brand5 text-start duration-300 leading-10 no-underline align-top" href={`${linkedin}`} target="_blank" aria-label="linkedin" >
                       <FaLinkedinIn />
                     </Link>
                   )}
                   {instagram && (
-                    <Link className="text-sm sm:text-[1.375rem] lg:text-[1.75rem] text-white hover:text-brand5 text-start duration-300 leading-[2.625rem] no-underline align-top" href={`${instagram}`} target="_blank" aria-label="instagram" >
+                    <Link className="text-sm sm:text-xl lg:text-3xl text-white hover:text-brand5 text-start duration-300 leading-10 no-underline align-top" href={`${instagram}`} target="_blank" aria-label="instagram" >
                       <FaInstagram />
                     </Link>
                   )}
@@ -129,8 +129,8 @@ const TemplateSlideVertical = ({
         </div>
         {home ? (
           <>
-            <div className="w-full sm:w-[80%] h-full flex relative">
-              <div className="clip-custom w-full h-3/4 sm:h-full left-0 sm:left-[50px] relative bg-cover bg-no-repeat bg-center z-10" style={{ backgroundImage: `url(${img})` }} />
+            <div className="w-full sm:w-3/4 h-full flex relative">
+              <div className="clip-custom w-full h-3/4 sm:h-full left-0 sm:left-12 relative bg-cover bg-no-repeat bg-center z-10" style={{ backgroundImage: `url(${img})` }} />
             </div>
           </>
         ) : (
@@ -166,7 +166,7 @@ const TemplateSlideVertical = ({
                   </div>
                   <AnimatedCharactersNumber>
                     <span
-                      className={`${cursor ? `cursor-pointer` : `cursor-default`} ${abril.className} hidden sm:block sm:text-[4.375rem] lg:text-[9.375rem] break-all h-fit whitespace-normal leading-[1.1]`}
+                      className={`${cursor ? `cursor-pointer` : `cursor-default`} ${abril.className} hidden sm:block sm:text-7xl lg:text-9xl break-all h-fit whitespace-normal leading-tight`}
                       onClick={() => {
                         router.push(`/${section}`);
                         setAnimationImage(true);
