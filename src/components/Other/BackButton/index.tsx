@@ -1,5 +1,4 @@
 import { useContext, useEffect } from "react";
-import { motion } from "framer-motion";
 
 import { GlobalContext } from "@/context/globalContext";
 
@@ -21,11 +20,10 @@ const BackButton = ({ route }: BackButtonProps) => {
     return (
         <>
             {router.pathname !== "/" && (
-                <motion.a
-                    className="fixed z-30 block overflow-hidden text-white top-[3.75rem] left-[6.25%] sm:top-[7.5rem] sm:left-10 w-16 duration-300 transition-all font-normal"
+                <a
+                    className="fixed z-30 block overflow-hidden text-white top-14 left-5 hover:left-7 sm:top-28 hover:sm:left-12 sm:left-10 w-16 duration-300 transition-all font-normal"
                     href={`/#${route}`}
                     aria-label="return"
-                    whileHover={{ left: "2rem" }}
                     onClick={() => {
                         isMobile
                             ? router.push(`/#${route}`)
@@ -37,7 +35,7 @@ const BackButton = ({ route }: BackButtonProps) => {
                     }}
                 >
                     <Icon
-                        className="w-8 h-8 left-[1.375rem] sm:w-12 lg:w-auto"
+                        className="w-8 h-8 left-5 sm:w-12 lg:w-auto"
                         id="Arrow"
                         width={"64"}
                         height={"34"}
@@ -51,7 +49,7 @@ const BackButton = ({ route }: BackButtonProps) => {
                                 );
                         }}
                     />
-                </motion.a>
+                </a>
             )}
         </>
     );
