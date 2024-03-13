@@ -45,7 +45,7 @@ const TemplateSlideVertical = ({
           damping: home ? 0 : 15
         }}
       >
-        <div className="top-[60%] sm:top-[27%] left-5 sm:left-[11%] flex flex-col justify-center absolute z-50">
+        <div className="top-[60%] sm:top-[27%] left-5 sm:left-[11%] flex flex-col justify-center absolute z-20">
           {!home && details && !link ? (
             <>
               <AnimatedCharactersDetailsLeft duration={1}>
