@@ -24,7 +24,7 @@ const TemplateRoute = ({ image, children, title, details, textButton, email, git
           <AnimatedCharactersDetailsLeft duration={1} animate>
             <h2 className="text-white leading-none tracking-widest font-medium w-[62.5rem] text-4xl sm:text-[3.875rem] lg:text-[6.875rem]">{title}</h2>
           </AnimatedCharactersDetailsLeft>
-          <Bars animate />
+          <Bars />
           <AnimatedCharactersDetailsLeft duration={1.1} animate>
             <div className="w-full min-w-[12.5rem] mb-[.1rem] h-[3.25rem] lg:mb-8 lg:h-[5.25rem] lg:w-[90%] lg:min-w-[36.875rem] lg:pr-60">
               <h3 className="w-full text-white text-sm leading-4 sm:text-xl sm:leading-5 lg:text-[1.75rem] lg:leading-[2.625rem] tracking-widest break-all whitespace-normal">{details}</h3>
