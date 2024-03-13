@@ -20,18 +20,18 @@ const TemplateRoute = ({ image, children, title, details, textButton, email, git
   return (
     <section className="w-screen h-full flex flex-col bg-gradient2">
       <div className="w-full min-h-screen flex justify-center items-center relative overflow-hidden bg-brand2 flex-row">
-        <div className="w-1/2 h-full flex justify-center flex-col z-30 absolute sm:flex-col left-5 sm:left-10 lg:left-[11%] top-[25%] sm:top-auto">
+        <div className="w-1/2 h-full flex justify-center flex-col z-30 absolute sm:flex-col left-5 sm:left-10 lg:left-44 top-1/4 sm:top-auto">
           <AnimatedCharactersDetailsLeft duration={1} animate>
-            <h2 className="text-white leading-none tracking-widest font-medium w-[62.5rem] text-4xl sm:text-[3.875rem] lg:text-[6.875rem]">{title}</h2>
+            <h2 className="text-white leading-none tracking-widest font-medium w-full text-4xl sm:text-6xl lg:text-8xl sm:whitespace-nowrap">{title}</h2>
           </AnimatedCharactersDetailsLeft>
           <Bars />
           <AnimatedCharactersDetailsLeft duration={1.1} animate>
-            <div className="w-full min-w-[12.5rem] mb-[.1rem] h-[3.25rem] lg:mb-8 lg:h-[5.25rem] lg:w-[90%] lg:min-w-[36.875rem] lg:pr-60">
-              <h3 className="w-full text-white text-sm leading-4 sm:text-xl sm:leading-5 lg:text-[1.75rem] lg:leading-[2.625rem] tracking-widest break-all whitespace-normal">{details}</h3>
+            <div className="w-full min-w-48 mb-1 h-12 lg:mb-8 lg:h-20 lg:w-full lg:min-w-full lg:pr-60">
+              <h3 className="w-full text-white text-sm leading-4 sm:text-xl sm:leading-5 lg:text-3xl lg:leading-10 tracking-widest break-all whitespace-normal">{details}</h3>
             </div>
           </AnimatedCharactersDetailsLeft>
           <AnimatedTextButton duration={1.2} width="calc(100vw - 1.25rem)" animate>
-            <Link className="w-[9.6875rem] h-11 text-xs relative top-1/2 left-2/4 mb-0 -translate-x-1/2 sm:w-40 sm:h-12 sm:text-[.8rem] hover:bg-brand1 hover:border-2 hover:border-solid hover:border-brand1 lg:w-[11.75rem] lg:h-[3.375rem] lg:text-[.9375rem] sm:top-auto sm:left-auto sm:translate-x-0 flex items-center justify-center text-white cursor-pointer no-underline font-extrabold whitespace-nowrap bg-transparent text-center leading-[.1125rem] border-[.125rem] border-solid border-brand1 transition-all duration-300 ease-linear px-8 py-[1.125rem]" href={`${link}`} target="_blank">{textButton}</Link>
+            <Link className="w-40 h-11 text-xs relative top-1/2 left-2/4 mb-0 -translate-x-1/2 sm:w-40 sm:h-12 sm:text-sm hover:bg-brand1 hover:border-2 hover:border-solid hover:border-brand1 lg:w-48 lg:h-12 lg:text-base sm:top-auto sm:left-auto sm:translate-x-0 flex items-center justify-center text-white cursor-pointer no-underline font-extrabold whitespace-nowrap bg-transparent text-center leading-1 border-2 border-solid border-brand1 transition-all duration-300 ease-linear px-8 py-1" href={`${link}`} target="_blank">{textButton}</Link>
           </AnimatedTextButton>
         </div>
         <motion.div

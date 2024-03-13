@@ -3,7 +3,7 @@ export const Work = [
         id: 1,
         name: "Portfolio",
         description: "",
-        tags: ["NextJs", "TypeScript", "Styled Components"],
+        tags: ["NextJs", "TypeScript", "TailwindCSS"],
         image: "/portfolio.webp",
         screens: { desktop: true, mobile: true },
         demo: "https://portfolio-vagner-mengali-vagnermengali.vercel.app/",
