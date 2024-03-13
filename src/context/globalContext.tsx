@@ -11,7 +11,6 @@ const GlobalProvider = ({ children }: ChildrenProps) => {
     const [animationImage, setAnimationImage] = useState<boolean>(false);
     const [animationImageSlide, setAnimationImageSlide] = useState<boolean>(false);
     const [isMobile, setIsMobile] = useState<boolean>(false);
-    const [isTabletSmall, setIsTabletSmall] = useState<boolean>(false);
     const [isTablet, setIsTablet] = useState<boolean>(false);
     const [cardHover, setCardHover] = useState<boolean>(false);
     const router = useRouter();
@@ -20,8 +19,7 @@ const GlobalProvider = ({ children }: ChildrenProps) => {
     
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth < 600);
-            setIsTabletSmall(window.innerWidth < 750 && window.innerWidth > 600);
+            setIsMobile(window.innerWidth < 640);
             setIsTablet(window.innerWidth < 950 && window.innerWidth > 600);
         };
 
@@ -44,7 +42,6 @@ const GlobalProvider = ({ children }: ChildrenProps) => {
             isMobile,
             setCardHover,
             cardHover,
-            isTabletSmall,
             isTablet
         }}>
             {children}

@@ -10,6 +10,5 @@ export interface IGlobalContext {
     isMobile?: boolean;
     setCardHover: React.Dispatch<React.SetStateAction<boolean>>;
     cardHover: boolean;
-    isTabletSmall: boolean;
     isTablet: boolean;
 }
