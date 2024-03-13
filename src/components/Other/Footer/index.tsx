@@ -1,10 +1,13 @@
 import Link from "next/link";
-import { useRouter } from 'next/router';
+import { useContext } from "react";
+
+import { GlobalContext } from "@/context/globalContext";
 
 import { FooterProps } from "@/interfaces/FooterProps/FooterProps";
 
+
 const Footer = ({ email, github }: FooterProps) => {
-    const router = useRouter();
+    const { router } = useContext(GlobalContext);
 
     if (router.pathname === '/') {
         return null;
