@@ -22,8 +22,8 @@ const WorksPage = () => {
   const { setCardHover } = useContext(GlobalContext);
 
   return (
-    <div className="w-screen h-full flex items-center justify-center pt-[18%] pb-10 lg:pt-10">
-      <motion.ul className="w-[83%] h-full grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10" variants={container} initial="hidden" animate="show" onHoverEnd={() => setCardHover(false)}>
+    <div className="w-screen h-full flex items-center justify-center p-5 sm:p-10">
+      <motion.ul className="w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10" variants={container} initial="hidden" animate="show" onHoverEnd={() => setCardHover(false)}>
         {Work.map((d) => (
           <Card key={d.id} data={d} />
         ))}

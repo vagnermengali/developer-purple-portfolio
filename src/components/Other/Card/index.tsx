@@ -57,30 +57,30 @@ const Card = (props: any) => {
       onMouseLeave={handleMouseLeave}
     >
       <motion.div
-        className="absolute w-full h-full z-10 flex justify-between flex-col py-[.8rem] px-[1.1rem] sm:py-6 sm:px-8"
+        className="absolute w-full h-full z-10 flex justify-between flex-col py-3 px-5 sm:py-6 sm:px-8"
         animate={isHovered ? "show" : "hidden"}
         variants={GradientBackground}
         transition={{ duration: 0.5, delay: 0.1, type: "spring", damping: 35 }}
       >
         <AnimatedTexDown>
           <h2 className="text-[calc(1rem + 0.5vw)]">{name}</h2>
-          <div className="flex items-center justify-end gap-[.4rem] overflow-auto w-1/2 sm:w-full scrollbar-none">
+          <div className="flex items-center justify-end gap-2 overflow-auto w-1/2 sm:w-full scrollbar-none">
             {screens.desktop && <FaDesktop className="icon" />}
             {screens.mobile && <FaMobileAlt className="icon" />}
           </div>
         </AnimatedTexDown>
         <AnimatedIconDown>
-          <div className="flex items-center justify-start gap-[.4rem] overflow-auto w-1/2 sm:w-full scrollbar-none">
+          <div className="flex items-center justify-start gap-2 overflow-auto w-1/2 sm:w-full scrollbar-none">
             {tags.map((elem: any, index: number) => (
-              <Icon key={index} className="w-4 h-4 sm:w-[1.7rem] sm:h-[1.7rem]" id={elem} width={27.2} height={27.2} size={27.2} />
+              <Icon key={index} className="w-4 h-4 sm:w-7 sm:h-7" id={elem} width={27.2} height={27.2} size={27.2} />
             ))}
           </div>
-          <div className="flex justify-between gap-4 sm:gap-[1.125rem]">
-            <Link className="w-[1.7rem] h-[1.7rem] text-white tracking-widest duration-300 no-underline hover:text-brand5" href={demo} target="_blank" aria-label="deploy">
-              <FaShareSquare className="w-[1.7rem] h-[1.7rem]" />
+          <div className="flex justify-between gap-4 sm:gap-5">
+            <Link className="w-7 h-7 text-white tracking-widest duration-300 no-underline hover:text-brand5" href={demo} target="_blank" aria-label="deploy">
+              <FaShareSquare className="w-7 h-7" />
             </Link>
-            <Link className="w-[1.7rem] h-[1.7rem] text-white tracking-widest duration-300 no-underline hover:text-brand5" href={github} target="_blank" aria-label="github">
-              <FaGithub className="w-[1.7rem] h-[1.7rem]" />
+            <Link className="w-7 h-7 text-white tracking-widest duration-300 no-underline hover:text-brand5" href={github} target="_blank" aria-label="github">
+              <FaGithub className="w-7 h-7" />
             </Link>
           </div>
         </AnimatedIconDown>
