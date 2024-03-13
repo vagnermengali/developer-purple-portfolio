@@ -3,8 +3,7 @@ import Icon from "@/components/Other/Icon";
 import { SkillProcessProps } from "@/interfaces/SkillProcessProps/SkillProcessProps";
 
 const SkillProcess = ({ title, years, percentage }: SkillProcessProps) => {
-  const percentageCss = percentage.toString() + '%'
-  
+
   return (
     <li className="w-full h-min flex items-center justify-start lg:justify-center gap-4">
       <div className="w-8 h-8 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center">
@@ -20,8 +19,9 @@ const SkillProcess = ({ title, years, percentage }: SkillProcessProps) => {
             {percentage}<span className="text-white tracking-down leading-tight text-xs sm:text-base font-light">%</span>
           </p>
         </div>
-        <div className="w-full">
-          <div className={`w-full h-2 sm:h-3 bg-blur relative rounded-lg after:content-[''] after:absolute after:h-full after:rounded-xl after:bg-gradient1 after:w-[${percentageCss}]`}></div>
+        <div className="w-full relative">
+          <div className={`w-full h-2 sm:h-3 absolute rounded-xl bg-blur`}></div>
+          <div className={`w-full h-2 sm:h-3 absolute rounded-xl bg-gradient1`} style={{ width: `${percentage.toString()}%` }}></div>
         </div>
       </div>
     </li>
