@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  @apply scrollbar-none
+}
+
 body {
   @apply bg-brand3 text-white;
 }
@@ -9,5 +13,9 @@ body {
 @layer utilities {
   .clip-custom {
     clip-path: polygon(31% 0, 100% 25%, 61% 100%, 0 93%);
+  }
+
+  .tracking-down {
+    letter-spacing: 0.2rem;
   }
 }
