@@ -31,29 +31,25 @@ const AnimatedTextButton = ({ children, duration, width, animate }: ChildrenDura
     return (
         <>
             {animate ? (
-                <>
-                    <motion.div initial="hidden" animate={"visible"} variants={container}>
-                        <div>
-                            <span style={{ overflow: "hidden", display: "inline-block", width: width }}>
-                                <motion.span style={{ display: "inline-block", width: "100%", paddingRight: "1.25rem" }} variants={item}>
-                                    {children}
-                                </motion.span>
-                            </span>
-                        </div>
-                    </motion.div>
-                </>
+                <motion.div initial="hidden" animate={"visible"} variants={container}>
+                    <div>
+                        <span style={{ overflow: "hidden", display: "inline-block", width: width }}>
+                            <motion.span style={{ display: "inline-block", width: "100%", paddingRight: "1.25rem" }} variants={item}>
+                                {children}
+                            </motion.span>
+                        </span>
+                    </div>
+                </motion.div>
             ) : (
-                <>
-                    <motion.div initial="hidden" whileInView={"visible"} variants={container}>
-                        <div>
-                            <span style={{ overflow: "hidden", display: "inline-block", width: width }}>
-                                <motion.span style={{ display: "inline-block", width: "100%", paddingRight: "1.25rem" }} variants={item}>
-                                    {children}
-                                </motion.span>
-                            </span>
-                        </div>
-                    </motion.div>
-                </>
+                <motion.div initial="hidden" whileInView={"visible"} variants={container}>
+                    <div>
+                        <span style={{ overflow: "hidden", display: "inline-block", width: width }}>
+                            <motion.span style={{ display: "inline-block", width: "100%", paddingRight: "1.25rem" }} variants={item}>
+                                {children}
+                            </motion.span>
+                        </span>
+                    </div>
+                </motion.div>
             )}
         </>
     );

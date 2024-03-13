@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { motion } from 'framer-motion';
 import Link from "next/link";
+import { Abril_Fatface } from 'next/font/google'
 
 import { GlobalContext } from "@/context/globalContext";
 
@@ -12,6 +13,12 @@ import AnimatedTextButton from "@/components/Animations/AnimatedTextButton";
 
 import { TemplateSlideVerticalProps } from "@/interfaces/TemplateSlideVerticalProps/TemplateSlideVerticalProps";
 
+const abril = Abril_Fatface({
+  weight: ["400"],
+  style: ['normal'],
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 const TemplateSlideVertical = ({
   title,
@@ -129,7 +136,7 @@ const TemplateSlideVertical = ({
         ) : (
           <>
             <motion.div
-              className="flex static sm:relative mb-12 sm:mb-0 overflow-hidden "
+              className="flex static sm:relative mb-12 sm:mb-0"
               initial={{ scale: isMobile ? 1 : .7, width: isMobile ? "80%" : "67%", right: isMobile ? "0" : "-6%" }}
               whileInView={{ scale: 1, right: isMobile ? "0" : "-6%", width: isMobile ? "80%" : "67%" }}
               transition={{ duration: 0.3, delay: 0.1, type: "spring", damping: 35 }}
@@ -137,7 +144,7 @@ const TemplateSlideVertical = ({
               {!home ? (
                 <>
                   <div
-                    className={`${cursor ? `cursor-pointer` : `cursor-default`} w-full h-full left-0 relative bg-cover bg-no-repeat bg-center z-10`}
+                    className={`${cursor ? `cursor-pointer` : `cursor-default`} w-full h-full left-0 relative bg-cover bg-no-repeat bg-center z-0`}
                     style={{ backgroundImage: `url(${img})` }}
                     onClick={() => {
                       router.push(`/${section}`);
@@ -146,20 +153,20 @@ const TemplateSlideVertical = ({
                   >
                     <motion.div
                       className="absolute bg-brand1 right-0"
-                      initial={{ height: "100%", width: "calc(100vw - 33%)" }}
+                      initial={{ height: "100%", width: "100%" }}
                       whileInView={{ height: "100%", width: "0vw" }}
                       transition={{ ease: "anticipate", duration: .9, delay: .2, }}
                     />
                     <motion.div
                       className="absolute right-0 bg-brand3"
-                      initial={{ height: "100%", width: "calc(100vw - 33%)" }}
+                      initial={{ height: "100%", width: "100%" }}
                       whileInView={{ height: "100%", width: "0vw" }}
                       transition={{ ease: "anticipate", duration: .9, delay: .1 }}
                     />
                   </div>
                   <AnimatedCharactersNumber>
                     <span
-                      className={`${cursor ? `cursor-pointer` : `cursor-default`} hidden sm:text-[4.375rem] lg:text-[9.375rem] break-all h-fit whitespace-normal leading-[1.1]`}
+                      className={`${cursor ? `cursor-pointer` : `cursor-default`} ${abril.className} hidden sm:block sm:text-[4.375rem] lg:text-[9.375rem] break-all h-fit whitespace-normal leading-[1.1]`}
                       onClick={() => {
                         router.push(`/${section}`);
                         setAnimationImage(true);

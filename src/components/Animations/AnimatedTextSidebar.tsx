@@ -36,35 +36,33 @@ const AnimatedCharactersSidebar = ({ children }: ChildrenProps) => {
     };
 
     return (
-        <>
-            <AnimatePresence>
-                {children && (
-                    <motion.div
-                        initial="hidden"
-                        animate={isSideBarVisible ? "visible" : "hidden"}
-                        exit="exit"
-                    >
-                        <div>
-                            <span
+        <AnimatePresence>
+            {children && (
+                <motion.div
+                    initial="hidden"
+                    animate={isSideBarVisible ? "visible" : "hidden"}
+                    exit="exit"
+                >
+                    <div>
+                        <span
+                            style={{
+                                overflow: "hidden",
+                                display: "inline-block"
+                            }}
+                        >
+                            <motion.span
                                 style={{
-                                    overflow: "hidden",
                                     display: "inline-block"
                                 }}
+                                variants={item}
                             >
-                                <motion.span
-                                    style={{
-                                        display: "inline-block"
-                                    }}
-                                    variants={item}
-                                >
-                                    {children}
-                                </motion.span>
-                            </span>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </>
+                                {children}
+                            </motion.span>
+                        </span>
+                    </div>
+                </motion.div>
+            )}
+        </AnimatePresence>
     );
 };
 

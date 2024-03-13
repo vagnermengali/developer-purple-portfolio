@@ -29,17 +29,15 @@ const AnimatedIconDown = ({ children }: ChildrenProps) => {
     };
 
     return (
-        <>
-            <motion.div initial="hidden" animate={"visible"} variants={container}>
-                <div>
-                    <span style={{ overflow: "hidden", display: "inline-block", width: "100%" }}>
-                        <motion.span style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }} variants={item}>
-                            {children}
-                        </motion.span>
-                    </span>
-                </div>
-            </motion.div>
-        </>
+        <motion.div initial="hidden" animate={"visible"} variants={container}>
+            <div>
+                <span style={{ overflow: "hidden", display: "inline-block", width: "100%" }}>
+                    <motion.span style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }} variants={item}>
+                        {children}
+                    </motion.span>
+                </span>
+            </div>
+        </motion.div>
     );
 };
 

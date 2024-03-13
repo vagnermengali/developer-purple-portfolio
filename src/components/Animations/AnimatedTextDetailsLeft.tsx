@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 import { ChildrenDurationProps } from "@/interfaces/ChildrenProps/ChildrenProps";
 
-const AnimatedCharactersDetailsLeft = ({ children, duration, animate }: ChildrenDurationProps) => {
+const AnimatedCharactersDetailsLeft = ({ children, duration }: ChildrenDurationProps) => {
     const item = {
         hidden: {
             x: "-200%",
@@ -29,33 +29,15 @@ const AnimatedCharactersDetailsLeft = ({ children, duration, animate }: Children
     };
 
     return (
-        <>
-            {animate ? (
-                <>
-                    <motion.div initial="hidden" animate={"visible"} variants={container}>
-                        <div>
-                            <span style={{ overflow: "hidden", display: "inline-block" }}>
-                                <motion.span style={{ display: "inline-block" }} variants={item}>
-                                    {children}
-                                </motion.span>
-                            </span>
-                        </div>
-                    </motion.div>
-                </>
-            ) : (
-                <>
-                    <motion.div initial="hidden" whileInView={"visible"} variants={container}>
-                        <div>
-                            <span style={{ overflow: "hidden", display: "inline-block" }}>
-                                <motion.span style={{ display: "inline-block" }} variants={item}>
-                                    {children}
-                                </motion.span>
-                            </span>
-                        </div>
-                    </motion.div>
-                </>
-            )}
-        </>
+        <motion.div initial="hidden" whileInView={"visible"} variants={container}>
+            <div>
+                <span style={{ overflow: "hidden", display: "inline-block" }}>
+                    <motion.span style={{ display: "inline-block" }} variants={item}>
+                        {children}
+                    </motion.span>
+                </span>
+            </div>
+        </motion.div>
     );
 };
 
