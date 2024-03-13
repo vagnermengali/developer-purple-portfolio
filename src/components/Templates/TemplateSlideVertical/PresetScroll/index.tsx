@@ -52,15 +52,15 @@ const TemplateSlideVertical = ({
           damping: home ? 0 : 15
         }}
       >
-        <div className="top-2/3 sm:top-28 left-5 sm:left-44 flex flex-col justify-center absolute z-20">
+        <div className={`${home ? 'top-72 sm:top-1/4': 'top-60 sm:top-28'} left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
           {!home && details && !link ? (
             <>
               <AnimatedCharactersDetailsLeft duration={1}>
-                <h2 className="w-80  lg:w-5/6 text-4xl sm:text-6xl lg:text-8xl text-white font-medium leading-none tracking-widest"> {title} </h2>
+                <h2 className="w-80 lg:w-5/6 text-4xl sm:text-6xl lg:text-8xl text-white font-medium leading-none tracking-widest"> {title} </h2>
               </AnimatedCharactersDetailsLeft>
               <Bars />
               <AnimatedCharactersDetailsLeft duration={1.1}>
-                <div className="w-full sm:w-3/4 h-min sm:h-20 pr-60 mb-3 sm:mb-2 lg:mb-8">
+                <div className="w-full sm:w-3/4 h-min sm:h-20 pr-36 sm:pr-36 mb-3 sm:mb-2 lg:mb-8">
                   <h3 className="whitespace-normal break-all tracking-widest leading-10 text-white font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
                 </div>
               </AnimatedCharactersDetailsLeft>
@@ -137,8 +137,8 @@ const TemplateSlideVertical = ({
           <>
             <motion.div
               className="flex static sm:relative mb-12 sm:mb-0"
-              initial={{ scale: isMobile ? 1 : .7, width: isMobile ? "80%" : "67%", right: isMobile ? "0" : "-6%" }}
-              whileInView={{ scale: 1, right: isMobile ? "0" : "-6%", width: isMobile ? "80%" : "67%" }}
+              initial={{ scale: isMobile ? 1 : .7, width: isMobile ? "100%" : "67%", right: isMobile ? "0" : "-6%" }}
+              whileInView={{ scale: 1, right: isMobile ? "0" : "-6%", width: isMobile ? "100%" : "67%" }}
               transition={{ duration: 0.3, delay: 0.1, type: "spring", damping: 35 }}
             >
               {!home ? (
