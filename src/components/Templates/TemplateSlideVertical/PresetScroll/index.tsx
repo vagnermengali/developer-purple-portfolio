@@ -38,7 +38,7 @@ const TemplateSlideVertical = ({
   const { setAnimationImage, isMobile, router } = useContext(GlobalContext);
 
   return (
-    <section className="w-screen h-screen overflow-hidden flex items-center sm:items-end flex-col justify-start sm:justify-center relative">
+    <section className={`${home ? 'justify-center': 'justify-start sm:justify-center'} w-screen h-screen overflow-hidden flex items-end flex-col justify-start sm:justify-center relative`}>
       <motion.div
         className="flex justify-end sm:justify-center"
         initial={{ height: "100%", width: "100%" }}
