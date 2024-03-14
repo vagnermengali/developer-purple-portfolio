@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-
 import { ChildrenDurationProps } from "@/interfaces/ChildrenProps/ChildrenProps";
 
-const AnimatedCharactersDetailsLeft = ({ children, duration }: ChildrenDurationProps) => {
+const AnimatedCharactersDetailsLeft = ({ children, duration, animate }: ChildrenDurationProps) => {
     const item = {
         hidden: {
             x: "-200%",
@@ -29,15 +28,27 @@ const AnimatedCharactersDetailsLeft = ({ children, duration }: ChildrenDurationP
     };
 
     return (
-        <motion.div initial="hidden" whileInView={"visible"} variants={container}>
-            <div>
-                <span style={{ overflow: "hidden", display: "block" }}>
-                    <motion.span style={{ display: "block" }} variants={item}>
-                        {children}
-                    </motion.span>
-                </span>
-            </div>
-        </motion.div>
+        animate ? (
+            <motion.div initial="hidden" animate="visible" variants={container}>
+                <div>
+                    <span style={{ overflow: "hidden", display: "block" }}>
+                        <motion.span style={{ display: "block" }} variants={item}>
+                            {children}
+                        </motion.span>
+                    </span>
+                </div>
+            </motion.div>
+        ) : (
+            <motion.div initial="hidden" whileInView="visible" variants={container}>
+                <div>
+                    <span style={{ overflow: "hidden", display: "block" }}>
+                        <motion.span style={{ display: "block" }} variants={item}>
+                            {children}
+                        </motion.span>
+                    </span>
+                </div>
+            </motion.div>
+        )
     );
 };
 

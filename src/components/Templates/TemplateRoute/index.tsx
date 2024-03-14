@@ -13,10 +13,6 @@ import { TemplateRouteProps } from "@/interfaces/TemplateRouteProps/TemplateRout
 const TemplateRoute = ({ image, children, title, details, textButton, email, github, link }: TemplateRouteProps) => {
   const { isMobile, isTablet } = useContext(GlobalContext);
 
-  useEffect(() => {
-    window.scrollTo(-100, -110);
-  }, []);
-
   return (
     <section className="w-screen h-full flex flex-col bg-gradient2">
       <div className="w-full min-h-dvh flex justify-center items-center relative overflow-hidden bg-brand2 flex-row">
