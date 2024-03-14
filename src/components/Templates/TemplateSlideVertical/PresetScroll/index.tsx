@@ -40,7 +40,7 @@ const TemplateSlideVertical = ({
   return (
     <section className={`${home ? 'justify-center': 'justify-start sm:justify-center'} w-screen h-dvh overflow-hidden flex items-end flex-col justify-start sm:justify-center relative`}>
       <motion.div
-        className="flex justify-end sm:justify-center"
+        className="flex justify-end sm:justify-center my-0 mx-auto sm:mx-0"
         initial={{ height: "100%", width: "100%" }}
         whileInView={{
           width: home ? "90%" : isMobile ? "100%" : "78%",
@@ -52,7 +52,7 @@ const TemplateSlideVertical = ({
           damping: home ? 0 : 15
         }}
       >
-        <div className={`${home ? 'top-96 sm:top-1/4': 'top-80 sm:top-28'} left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
+        <div className={`${home ? 'top-96 sm:top-1/4': 'top-80 sm:top-40'} left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
           {!home && details && !link ? (
             <>
               <AnimatedCharactersDetailsLeft duration={1}>
@@ -60,7 +60,7 @@ const TemplateSlideVertical = ({
               </AnimatedCharactersDetailsLeft>
               <Bars />
               <AnimatedCharactersDetailsLeft duration={1.1}>
-                <div className="w-full sm:w-3/4 h-min sm:h-20 pr-36 sm:pr-36 mb-3 sm:mb-2 lg:mb-8">
+                <div className="w-full sm:w-2/5 h-min sm:h-20 pr-36 sm:pr-36 mb-3 sm:mb-2 lg:mb-8">
                   <h3 className="whitespace-normal break-all tracking-widest leading-normal text-white font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
                 </div>
               </AnimatedCharactersDetailsLeft>
