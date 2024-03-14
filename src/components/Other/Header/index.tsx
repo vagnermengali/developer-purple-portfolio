@@ -5,7 +5,6 @@ import MenuBurguer from "@/components/Other/MenuBurguer";
 import Sidebar from "@/components/Other/Sidebar";
 import BackButton from "@/components/Other/BackButton";
 import LineScroll from "@/components/Other/LineScroll";
-import ScrollNavigation from "@/components/Other/ScrollNavigation";
 
 import { HeaderProps } from "@/interfaces/HeaderProps/HeaderProps";
 
@@ -33,7 +32,6 @@ const Header = ({ linkedin, github, instagram, name, route }: HeaderProps) => {
             </header>
             <BackButton route={route} />
             <Sidebar linkedin={linkedin} github={github} instagram={instagram} />
-            <ScrollNavigation />
             <LineScroll />
         </>
     );

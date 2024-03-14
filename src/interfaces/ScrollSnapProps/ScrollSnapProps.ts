@@ -1,6 +1,10 @@
 export interface ScrollSnapProps {
-    main: React.ReactNode;
-    work: React.ReactNode;
-    about: React.ReactNode;
-    contact: React.ReactNode;
+    main: JSX.Element;
+    work: JSX.Element;
+    about: JSX.Element;
+    contact: JSX.Element;
+}
+export interface SectionScrollSnapProps {
+    component: React.ReactNode;
+    id: string;
 }

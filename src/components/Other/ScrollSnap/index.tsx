@@ -1,13 +1,9 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
+import { motion } from "framer-motion";
 
-interface FullPageVerticalProps {
-  main: JSX.Element;
-  work: JSX.Element;
-  about: JSX.Element;
-  contact: JSX.Element;
-}
+import { ScrollSnapProps, SectionScrollSnapProps } from '@/interfaces/ScrollSnapProps/ScrollSnapProps';
 
-const FullpageVertical: React.FC<FullPageVerticalProps> = ({ main, work, about, contact }) => {
+const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [scrollBlocked, setScrollBlocked] = useState(false);
@@ -19,11 +15,10 @@ const FullpageVertical: React.FC<FullPageVerticalProps> = ({ main, work, about, 
     { component: contact, id: 'contact' },
   ];
 
-  // Função para mapear o hash para o índice correspondente
-  const hashToIndex = (hash: string) => {
+  const hashToIndex = useCallback((hash: string) => {
     const index = sections.findIndex(section => `#${section.id}` === hash);
     return index >= 0 ? index : 0;
-  };
+  }, [sections]);
 
   const handleScroll = useCallback((e: WheelEvent) => {
     if (scrollBlocked) {
@@ -39,9 +34,7 @@ const FullpageVertical: React.FC<FullPageVerticalProps> = ({ main, work, about, 
     if (nextIndex !== currentIndex) {
       setCurrentIndex(nextIndex);
       setScrollBlocked(true);
-      setTimeout(() => {
-        setScrollBlocked(false);
-      }, 1000);
+      setTimeout(() => setScrollBlocked(false), 1000);
       window.location.hash = sections[nextIndex].id;
     }
   }, [currentIndex, scrollBlocked, sections]);
@@ -56,21 +49,57 @@ const FullpageVertical: React.FC<FullPageVerticalProps> = ({ main, work, about, 
   }, [handleScroll]);
 
   useEffect(() => {
-    // Ajusta o índice com base no hash atual na URL ao carregar a página
     const initialIndex = hashToIndex(window.location.hash);
     setCurrentIndex(initialIndex);
-  }, []);
+  }, [hashToIndex]);
 
   useEffect(() => {
-    // Garante que o scroll para a seção correta após o índice ser atualizado
     const currentSection = sections[currentIndex].component;
-    currentSection?.props.id && document.getElementById(currentSection.props.id)?.scrollIntoView({ behavior: 'smooth' });
+    if (currentSection?.props.id) {
+      document.getElementById(currentSection.props.id)?.scrollIntoView({ behavior: 'smooth' });
+    }
   }, [currentIndex, sections]);
+
+  const onNavigate = useCallback((sectionId: string) => {
+    const sectionIndex = sections.findIndex(section => section.id === sectionId);
+    if (sectionIndex >= 0) {
+      setCurrentIndex(sectionIndex);
+      window.location.hash = sectionId;
+    }
+  }, [sections]);
+
+  const ScrollNavigation = ({ onNavigate, currentIndex, sections }: {
+    onNavigate: (sectionId: string) => void, currentIndex: number, sections: SectionScrollSnapProps[]
+  }) => {
+    return (
+      <div className="fixed flex items-center flex-col justify-center w-8 sm:w-10 h-full lg:w-10 lg:h-32 left-1/2 lg:left-10 z-30 bottom-0 lg:top-1/2 -rotate-90 lg:rotate-0 -translate-x-2/4 translate-y-64 lg:-translate-y-2/4 lg:translate-x-0">
+        <ul className="list-none w-full h-full flex flex-col items-center justify-center gap-7 lg:block">
+          {sections.map((section, index) => (
+            <li
+              className="w-full my-2 sm:my-4 lg:my-0 lg:mb-10 flex items-center h-6 lg:block relative lg:h-1"
+              key={section.id}
+            >
+              <motion.div
+                initial={{ width: '50%' }}
+                animate={{
+                  width: currentIndex === index ? '100%' : '50%',
+                }}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
+                className="block absolute top-1/2 lg:top-auto lg:relative z-50 h-1 lg:h-full cursor-pointer bg-white no-underline mb-10"
+                onClick={() => onNavigate(section.id)}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
 
   return (
     <div ref={containerRef} className="w-screen h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth">
+      <ScrollNavigation onNavigate={onNavigate} currentIndex={currentIndex} sections={sections} />
       {sections.map((section, index) => (
-        <section key={index} id={section.id} className="snap-start h-screen w-screen flex">
+        <section key={index} id={section.id} className="snap-start h-screen w-screen flex justify-center items-center">
           {section.component}
         </section>
       ))}
@@ -78,4 +107,4 @@ const FullpageVertical: React.FC<FullPageVerticalProps> = ({ main, work, about, 
   );
 };
 
-export default FullpageVertical;
+export default ScrollSnap;
