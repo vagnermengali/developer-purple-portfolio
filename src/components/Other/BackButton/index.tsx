@@ -20,7 +20,7 @@ const BackButton = ({ route }: BackButtonProps) => {
 
     return (
         <>
-            {router.pathname == "/about" || router.pathname == "/work" && (
+            {(router.pathname == "/about" || router.pathname == "/work") && (
                 <Link
                     className="fixed z-30 block overflow-hidden text-white top-14 left-5 hover:left-7 sm:top-28 hover:sm:left-12 sm:left-10 w-16 duration-300 transition-all font-normal"
                     href={`/#${route.substring(1)}`}
@@ -51,6 +51,7 @@ const BackButton = ({ route }: BackButtonProps) => {
             )}
         </>
     );
+
 };
 
 export default BackButton;
