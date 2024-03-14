@@ -35,8 +35,6 @@ const LineScroll = () => {
     };
   }, [router.pathname]);
 
-  console.log(router.pathname)
-
   return (
     <>
       {
