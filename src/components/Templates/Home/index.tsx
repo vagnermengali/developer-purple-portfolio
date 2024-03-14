@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import { GlobalContext } from "@/context/globalContext";
 
-import Fullpage from "@/components/Other/Fullpage";
+import ScrollSnap from "@/components/Other/ScrollSnap";
 import TemplateSlide from "@/components/Templates/TemplateSlideVertical/PresetScroll";
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <section className="bg-gradient2 overflow-hidden">
-      <Fullpage
+      <ScrollSnap
         main={
           <TemplateSlide
             title={"VAGNER MENGALI"}

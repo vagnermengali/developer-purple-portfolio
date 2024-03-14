@@ -13,7 +13,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <DarkDiv key={router.route} />
+      <DarkDiv />
       <GlobalContext>
         <Layout
           github={"https://github.com/vagnermengali"}
@@ -24,9 +24,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           route={router.route}
         >
           <AnimatePresence mode='wait' >
-            <motion.div key={router.route}>
-              <Component {...pageProps} />
-            </motion.div>
+            <Component {...pageProps} />
           </AnimatePresence>
         </Layout>
       </GlobalContext >

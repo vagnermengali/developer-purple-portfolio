@@ -4,12 +4,12 @@ import Work from "@/components/Templates/Work";
 const WorkPage = () => {
   return (
     <>
-      <Seo
+{/*       <Seo
         title="Meus Trabalhos • Portfólio"
         routes="work"
         description="Projetos de software que definem novos padrões de excelência. Veja como minhas habilidades podem transformar sua ideia em um sucesso tecnológico."
       />
-      <Work />
+      <Work /> */}
     </>
   );
 };
