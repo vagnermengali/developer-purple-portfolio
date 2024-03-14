@@ -2,7 +2,7 @@ import AnimatedCharactersDetailsLeft from "@/components/Animations/AnimatedTextD
 
 const Bars = () => {
   return (
-    <div className="flex flex-col w-36 gap-1">
+    <div className="flex flex-col w-36 gap-1 sm:gap-5">
       <AnimatedCharactersDetailsLeft duration={1.1}>
         <span className="block self-start w-11 sm:w-16 lg:w-20 h-1 sm:h-1 bg-brand1 mt-4 sm:mt-6" />
       </AnimatedCharactersDetailsLeft>

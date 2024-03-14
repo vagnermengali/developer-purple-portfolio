@@ -9,7 +9,6 @@ import AnimatedTextButton from "@/components/Animations/AnimatedTextButton";
 
 import { TemplateRouteProps } from "@/interfaces/TemplateRouteProps/TemplateRouteProps";
 
-
 const TemplateRoute = ({ image, children, title, details, textButton, email, github, link }: TemplateRouteProps) => {
   const { isMobile, isTablet } = useContext(GlobalContext);
 

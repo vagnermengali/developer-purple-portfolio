@@ -38,7 +38,7 @@ const TemplateSlideVertical = ({
   const { setAnimationImage, isMobile, router } = useContext(GlobalContext);
 
   return (
-    <section className={`${home ? 'justify-center': 'justify-start sm:justify-center'} w-screen h-dvh overflow-hidden flex items-end flex-col justify-start sm:justify-center relative`}>
+    <section className={`${home ? 'justify-center' : 'justify-start sm:justify-center'} w-screen h-dvh overflow-hidden flex items-end flex-col justify-start sm:justify-center relative`}>
       <motion.div
         className="flex justify-end sm:justify-center my-0 mx-auto sm:mx-0"
         initial={{ height: "100%", width: "100%" }}
@@ -52,7 +52,7 @@ const TemplateSlideVertical = ({
           damping: home ? 0 : 15
         }}
       >
-        <div className={`${home ? 'top-96 sm:top-1/4': 'top-80 sm:top-40'} left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
+        <div className={`${home ? 'top-96 sm:top-1/4' : 'top-80 sm:top-40'} left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
           {!home && details && !link ? (
             <>
               <AnimatedCharactersDetailsLeft duration={1}>
@@ -85,15 +85,14 @@ const TemplateSlideVertical = ({
           )}
           {home ? null : !link ? (
             <AnimatedTextButton duration={1.2} width="calc(100vw - 1.25rem)">
-              <button
+              <Link href={`${section}`}
                 className="w-40 h-11 text-xs relative top-1/2 left-2/4 mb-0 -translate-x-1/2 sm:w-40 sm:h-12 sm:text-sm hover:bg-brand1 hover:border-2 hover:border-solid hover:border-brand1 lg:w-44 lg:h-12 lg:text-base sm:top-auto sm:left-auto sm:translate-x-0 flex items-center justify-center text-white cursor-pointer no-underline font-extrabold whitespace-nowrap bg-transparent text-center leading-3 border-2 border-solid border-brand1 transition-all duration-300 ease-linear px-8 py-4"
                 onClick={() => {
-                  router.push(`/${section}`);
                   setAnimationImage(true);
                 }}
               >
                 {textButton}
-              </button>
+              </Link>
             </AnimatedTextButton>
           ) : (
             <>
@@ -143,11 +142,10 @@ const TemplateSlideVertical = ({
             >
               {!home ? (
                 <>
-                  <div
+                  <Link href={`${section}`}
                     className={`${cursor ? `cursor-pointer` : `cursor-default`} w-full h-full left-0 relative bg-cover bg-no-repeat bg-center z-0`}
                     style={{ backgroundImage: `url(${img})` }}
                     onClick={() => {
-                      router.push(`/${section}`);
                       setAnimationImage(true);
                     }}
                   >
@@ -163,17 +161,16 @@ const TemplateSlideVertical = ({
                       whileInView={{ height: "100%", width: "0vw" }}
                       transition={{ ease: "anticipate", duration: .9, delay: .1 }}
                     />
-                  </div>
+                  </Link>
                   <AnimatedCharactersNumber>
-                    <span
+                    <Link href={`${section}`}
                       className={`${cursor ? `cursor-pointer` : `cursor-default`} ${abril.className} hidden sm:block sm:text-7xl lg:text-9xl break-all h-fit whitespace-normal leading-tight`}
                       onClick={() => {
-                        router.push(`/${section}`);
                         setAnimationImage(true);
                       }}
                     >
                       {number}
-                    </span>
+                    </Link>
                   </AnimatedCharactersNumber>
                 </>
               ) : (

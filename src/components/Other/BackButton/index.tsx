@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useContext, useEffect } from "react";
 
 import { GlobalContext } from "@/context/globalContext";
@@ -20,18 +21,15 @@ const BackButton = ({ route }: BackButtonProps) => {
     return (
         <>
             {router.pathname == "/about" || router.pathname == "/work" && (
-                <a
+                <Link
                     className="fixed z-30 block overflow-hidden text-white top-14 left-5 hover:left-7 sm:top-28 hover:sm:left-12 sm:left-10 w-16 duration-300 transition-all font-normal"
-                    href={`/#${route}`}
+                    href={`/#${route.substring(1)}`}
                     aria-label="return"
                     onClick={() => {
-                        isMobile
-                            ? router.push(`/#${route}`)
-                            : (
-                                setAnimationImage(false),
-                                setAnimationImageSlide(true),
-                                router.push(`/#${route}`)
-                            );
+                        isMobile && (
+                            setAnimationImage(false),
+                            setAnimationImageSlide(true)
+                        );
                     }}
                 >
                     <Icon
@@ -41,15 +39,15 @@ const BackButton = ({ route }: BackButtonProps) => {
                         height={"34"}
                         onClick={() => {
                             isMobile
-                                ? router.push(`/#${route}`)
+                                ? router.push(`/#${route.substring(1)}`)
                                 : (
                                     setAnimationImage(false),
                                     setAnimationImageSlide(true),
-                                    router.push(`/#${route}`)
+                                    router.push(`/#${route.substring(1)}`)
                                 );
                         }}
                     />
-                </a>
+                </Link>
             )}
         </>
     );

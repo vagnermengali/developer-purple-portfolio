@@ -15,7 +15,7 @@ const Home = () => {
           <TemplateSlide
             title={"VAGNER MENGALI"}
             details={"Desenvolvedor de software."}
-            section={"main"}
+            section={"/main"}
             number={""}
             img={"/vagner-mengali.webp"}
             home
@@ -27,7 +27,7 @@ const Home = () => {
             title={"Meus Trabalhos"}
             details={"Lista de todos os trabalhos e projetos feitos por mim."}
             textButton={"Mostre-me mais"}
-            section={"work"}
+            section={"/work"}
             number={"01"}
             img={isMobile ? "/work-mobile.webp" : isTablet ? "/work-mobile.webp" : "/work.webp"}
             cursor={true}
@@ -38,7 +38,7 @@ const Home = () => {
             title={"Sobre Mim"}
             details={"Eu amo Design, Tecnologia e Histórias."}
             textButton={"Mostre-me mais"}
-            section={"about"}
+            section={"/about"}
             number={"02"}
             img={isMobile ? "/about-mobile.webp" : isTablet ? "/about-mobile.webp" : "/about.webp"}
             cursor={true}
@@ -47,7 +47,7 @@ const Home = () => {
         contact={
           <TemplateSlide
             title={"Entre em Contato"}
-            section={"contact"}
+            section={"/contact"}
             number={"03"}
             link
             email={"contatovagnermengali@gmail.com"}
