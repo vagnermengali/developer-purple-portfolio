@@ -58,7 +58,7 @@ const FullpageVertical: React.FC<FullPageVerticalProps> = ({ main, work, about, 
 
   useEffect(() => {
     const container = containerRef.current;
-    const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+    const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || ('msMaxTouchPoints' in navigator && (navigator as any).msMaxTouchPoints > 0);
     const eventName = isMobile ? 'touchmove' : 'wheel';
     container?.addEventListener(eventName, handleScroll, { passive: false });
 
