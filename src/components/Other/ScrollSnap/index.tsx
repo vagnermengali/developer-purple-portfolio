@@ -19,30 +19,20 @@ const FullpageVertical: React.FC<FullPageVerticalProps> = ({ main, work, about, 
     { component: contact, id: 'contact' },
   ];
 
+  // Função para mapear o hash para o índice correspondente
   const hashToIndex = (hash: string) => {
     const index = sections.findIndex(section => `#${section.id}` === hash);
     return index >= 0 ? index : 0;
   };
 
-  const handleScroll = useCallback((e: WheelEvent | TouchEvent) => {
+  const handleScroll = useCallback((e: WheelEvent) => {
     if (scrollBlocked) {
       e.preventDefault();
       return;
     }
 
     e.preventDefault();
-
-    let direction: number;
-    if ('deltaY' in e) {
-      // Desktop
-      direction = (e as WheelEvent).deltaY > 0 ? 1 : -1;
-    } else {
-      // Mobile
-      const touchEvent = e as TouchEvent;
-      const deltaY = touchEvent.changedTouches[0].clientY - touchEvent.touches[0].clientY;
-      direction = deltaY > 0 ? 1 : -1;
-    }
-
+    const direction = e.deltaY > 0 ? 1 : -1;
     let nextIndex = currentIndex + direction;
     nextIndex = Math.max(0, Math.min(nextIndex, sections.length - 1));
 
@@ -58,32 +48,29 @@ const FullpageVertical: React.FC<FullPageVerticalProps> = ({ main, work, about, 
 
   useEffect(() => {
     const container = containerRef.current;
-    const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || ('msMaxTouchPoints' in navigator && (navigator as any).msMaxTouchPoints > 0);
-    const eventName = isMobile ? 'touchmove' : 'wheel';
-    container?.addEventListener(eventName, handleScroll, { passive: false });
+    container?.addEventListener('wheel', handleScroll, { passive: false });
 
     return () => {
-      container?.removeEventListener(eventName, handleScroll);
+      container?.removeEventListener('wheel', handleScroll);
     };
   }, [handleScroll]);
 
   useEffect(() => {
-    const hash = window.location.hash;
-    const initialIndex = hash === '#main' ? 0 : hashToIndex(hash);
+    // Ajusta o índice com base no hash atual na URL ao carregar a página
+    const initialIndex = hashToIndex(window.location.hash);
     setCurrentIndex(initialIndex);
   }, []);
 
   useEffect(() => {
+    // Garante que o scroll para a seção correta após o índice ser atualizado
     const currentSection = sections[currentIndex].component;
-    if (currentIndex !== 0) {
-      document.getElementById(currentSection.props.id)?.scrollIntoView({ behavior: 'smooth' });
-    }
+    currentSection?.props.id && document.getElementById(currentSection.props.id)?.scrollIntoView({ behavior: 'smooth' });
   }, [currentIndex, sections]);
 
   return (
     <div ref={containerRef} className="w-screen h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth">
       {sections.map((section, index) => (
-        <section key={index} id={section.id} className={`snap-start h-screen w-screen flex ${currentIndex !== index ? 'hidden' : ''}`}>
+        <section key={index} id={section.id} className="snap-start h-screen w-screen flex">
           {section.component}
         </section>
       ))}
