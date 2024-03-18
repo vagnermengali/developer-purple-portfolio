@@ -13,21 +13,21 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <DarkDiv />
-      <GlobalContext>
-        <Layout
-          github={"https://github.com/vagnermengali"}
-          linkedin={"https://www.linkedin.com/in/vagnermengali/"}
-          instagram={"https://www.instagram.com/vagner.mengali/"}
-          name={"Vagner Mengali"}
-          email={"contatovagnermengali@gmail.com"}
-          route={router.route}
-        >
-          <AnimatePresence mode='wait' >
+      <AnimatePresence mode='wait' >
+        <DarkDiv />
+        <GlobalContext>
+          <Layout
+            github={"https://github.com/vagnermengali"}
+            linkedin={"https://www.linkedin.com/in/vagnermengali/"}
+            instagram={"https://www.instagram.com/vagner.mengali/"}
+            name={"Vagner Mengali"}
+            email={"contatovagnermengali@gmail.com"}
+            route={router.route}
+          >
             <Component {...pageProps} />
-          </AnimatePresence>
-        </Layout>
-      </GlobalContext >
+          </Layout>
+        </GlobalContext >
+      </AnimatePresence>
     </>
   )
 }
