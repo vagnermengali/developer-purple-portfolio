@@ -20,23 +20,14 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
     return index >= 0 ? index : 0;
   }, [sections]);
 
-  const handleScroll = useCallback((e: WheelEvent | TouchEvent) => {
+  const handleScroll = useCallback((e: WheelEvent) => {
     e.preventDefault();
 
     if (scrollBlocked) {
       return;
     }
 
-    let deltaY = 0;
-    if ('deltaY' in e) {
-      deltaY = (e as WheelEvent).deltaY;
-    } else if ('touches' in e && e.touches.length > 0 && 'clientY' in e.touches[0]) {
-      const startY = (e as TouchEvent).touches[0].clientY;
-      const currentY = (e as TouchEvent).touches[0].clientY;
-      deltaY = currentY - startY;
-    }
-
-    const direction = deltaY > 0 ? 1 : -1;
+    const direction = e.deltaY > 0 ? 1 : -1;
     let nextIndex = currentIndex + direction;
     nextIndex = Math.max(0, Math.min(nextIndex, sections.length - 1));
 
@@ -51,13 +42,9 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
   useEffect(() => {
     const container = containerRef.current;
     container?.addEventListener('wheel', handleScroll, { passive: false });
-    container?.addEventListener('touchstart', handleScroll, { passive: false });
-    container?.addEventListener('touchmove', handleScroll, { passive: false });
 
     return () => {
       container?.removeEventListener('wheel', handleScroll);
-      container?.removeEventListener('touchstart', handleScroll);
-      container?.removeEventListener('touchmove', handleScroll);
     };
   }, [handleScroll]);
 
