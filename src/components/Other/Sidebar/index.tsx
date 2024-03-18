@@ -9,7 +9,7 @@ import AnimatedTextSidebar from "@/components/Animations/AnimatedTextSidebar";
 import { SidebarProps } from "@/interfaces/SidebarProps/SidebarProps";
 
 const Sidebar = ({ linkedin, github, instagram }: SidebarProps) => {
-    const { setIsSideBarVisible, isSideBarVisible, setAnimationImage, router, isMobile } = useContext(GlobalContext);
+    const { setIsSideBarVisible, isSideBarVisible, router, isMobile } = useContext(GlobalContext);
 
     return (
         <motion.div
@@ -32,7 +32,6 @@ const Sidebar = ({ linkedin, github, instagram }: SidebarProps) => {
                         onClick={() => {
                             router.push("/work");
                             setIsSideBarVisible(false);
-                            setAnimationImage(true);
                         }}
                     >
                         Trabalhos
@@ -44,7 +43,6 @@ const Sidebar = ({ linkedin, github, instagram }: SidebarProps) => {
                         onClick={() => {
                             router.push("/about");
                             setIsSideBarVisible(false);
-                            setAnimationImage(true);
                         }}
                     >
                         Sobre mim

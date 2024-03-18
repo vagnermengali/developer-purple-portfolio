@@ -8,8 +8,6 @@ export const GlobalContext = createContext<IGlobalContext>({} as IGlobalContext)
 
 const GlobalProvider = ({ children }: ChildrenProps) => {
     const [isSideBarVisible, setIsSideBarVisible] = useState<boolean>(false);
-    const [animationImage, setAnimationImage] = useState<boolean>(false);
-    const [animationImageSlide, setAnimationImageSlide] = useState<boolean>(false);
     const [isMobile, setIsMobile] = useState<boolean>(false);
     const [isTablet, setIsTablet] = useState<boolean>(false);
     const [cardHover, setCardHover] = useState<boolean>(false);
@@ -34,10 +32,6 @@ const GlobalProvider = ({ children }: ChildrenProps) => {
             isSideBarVisible,
             setIsSideBarVisible,
             showSideBar,
-            animationImage,
-            setAnimationImage,
-            animationImageSlide,
-            setAnimationImageSlide,
             router,
             isMobile,
             setCardHover,
