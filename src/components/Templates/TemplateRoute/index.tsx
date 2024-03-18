@@ -17,7 +17,7 @@ const TemplateRoute = ({ image, children, title, details, textButton, link }: Te
     <section className="w-screen h-full flex flex-col bg-gradient2">
       <div className="w-full min-h-dvh flex justify-center items-center relative overflow-hidden bg-brand2 flex-row">
         <div className="w-1/2 h-full flex justify-center flex-col z-30 absolute sm:flex-col left-5 sm:left-10 lg:left-44 top-1/4 sm:top-auto">
-          <AnimatedCharactersDetailsLeft duration={1} animate>
+          <AnimatedCharactersDetailsLeft duration={1} animate={true} titleFit={true}>
             <h2 className="text-white leading-none tracking-widest font-medium w-full text-4xl sm:text-6xl lg:text-8xl sm:whitespace-nowrap">{title}</h2>
           </AnimatedCharactersDetailsLeft>
           <Bars />

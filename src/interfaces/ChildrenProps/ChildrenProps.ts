@@ -7,4 +7,5 @@ export interface ChildrenDurationProps extends ChildrenProps {
     width?: string;
     animate?: boolean;
     hover?: boolean;
+    titleFit?: boolean;
 }
