@@ -3,6 +3,10 @@ import { motion } from "framer-motion";
 
 import { ScrollSnapProps, SectionScrollSnapProps } from '@/interfaces/ScrollSnapProps/ScrollSnapProps';
 
+const isMobileDevice = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+};
+
 const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -72,12 +76,18 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
 
   useEffect(() => {
     const container = containerRef.current;
-    container?.addEventListener('wheel', handleScroll, { passive: false });
-    container?.addEventListener('touchstart', handleTouchStart, { passive: false });
+    if (isMobileDevice()) {
+      container?.addEventListener('touchstart', handleTouchStart, { passive: false });
+    } else {
+      container?.addEventListener('wheel', handleScroll, { passive: false });
+    }
 
     return () => {
-      container?.removeEventListener('wheel', handleScroll);
-      container?.removeEventListener('touchstart', handleTouchStart);
+      if (isMobileDevice()) {
+        container?.removeEventListener('touchstart', handleTouchStart);
+      } else {
+        container?.removeEventListener('wheel', handleScroll);
+      }
     };
   }, [handleScroll, handleTouchStart]);
 
