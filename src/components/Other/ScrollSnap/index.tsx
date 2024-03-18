@@ -39,14 +39,47 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
     }
   }, [currentIndex, scrollBlocked, sections]);
 
+  const handleTouchStart = useCallback((e: TouchEvent) => {
+    const touchStartY = e.touches[0].clientY;
+
+    const handleTouchMove = (e: TouchEvent) => {
+      e.preventDefault();
+      const touchEndY = e.touches[0].clientY;
+      const deltaY = touchStartY - touchEndY;
+      
+      if (Math.abs(deltaY) > 50 && !scrollBlocked) {
+        const direction = deltaY > 0 ? 1 : -1;
+        let nextIndex = currentIndex + direction;
+        nextIndex = Math.max(0, Math.min(nextIndex, sections.length - 1));
+  
+        if (nextIndex !== currentIndex) {
+          setCurrentIndex(nextIndex);
+          setScrollBlocked(true);
+          setTimeout(() => setScrollBlocked(false), 1000);
+          window.location.hash = sections[nextIndex].id;
+        }
+      }
+    };
+
+    const handleTouchEnd = () => {
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
+    };
+
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+    window.addEventListener('touchend', handleTouchEnd);
+  }, [currentIndex, scrollBlocked, sections]);
+
   useEffect(() => {
     const container = containerRef.current;
     container?.addEventListener('wheel', handleScroll, { passive: false });
+    container?.addEventListener('touchstart', handleTouchStart, { passive: false });
 
     return () => {
       container?.removeEventListener('wheel', handleScroll);
+      container?.removeEventListener('touchstart', handleTouchStart);
     };
-  }, [handleScroll]);
+  }, [handleScroll, handleTouchStart]);
 
   useEffect(() => {
     const initialIndex = hashToIndex(window.location.hash);
