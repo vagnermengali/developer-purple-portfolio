@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 import DarkDiv from "@/components/Other/DarkDiv";
 import Layout from "@/components/Other/Layout";
@@ -24,7 +24,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           email={"contatovagnermengali@gmail.com"}
           route={router.route}
         >
-          <AnimatePresence>
+          <AnimatePresence mode="wait">
             <Component key={"component"} {...pageProps} />
           </AnimatePresence>
         </Layout>

@@ -1,4 +1,5 @@
 import { Jost } from 'next/font/google'
+import { AnimatePresence } from "framer-motion";
 
 import Header from "@/components/Other/Header";
 import Footer from "@/components/Other/Footer";
@@ -13,17 +14,19 @@ const jost = Jost({
 
 const Layout = ({ github, linkedin, instagram, name, email, route, children }: any) => {
     return (
-        <div className={`overflow-x-hidden ${jost.className}`}>
-            <Header
-                github={github}
-                linkedin={linkedin}
-                instagram={instagram}
-                name={name}
-                route={route}
-            />
-            <main>{children}</main>
-            <Footer email={email} github={github} />
-        </div>
+        <AnimatePresence mode="wait">
+            <div className={`overflow-x-hidden ${jost.className}`}>
+                <Header
+                    github={github}
+                    linkedin={linkedin}
+                    instagram={instagram}
+                    name={name}
+                    route={route}
+                />
+                <main>{children}</main>
+                <Footer email={email} github={github} />
+            </div>
+        </AnimatePresence>
     );
 };
 
