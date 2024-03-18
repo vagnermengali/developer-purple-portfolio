@@ -12,7 +12,7 @@ export interface TemplateSlideVerticalProps {
     img: string;
     home?: boolean;
     cursor: boolean;
-    section?: string;
+    section: string;
 }
 
 export interface ImgProps {

@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { motion } from 'framer-motion';
-import Link from "next/link";
 import { Abril_Fatface } from 'next/font/google'
 
 import { GlobalContext } from "@/context/globalContext";
@@ -35,7 +34,7 @@ const TemplateSlideVertical = ({
   cursor,
   section
 }: TemplateSlideVerticalProps) => {
-  const { isMobile, router } = useContext(GlobalContext);
+  const { isMobile } = useContext(GlobalContext);
 
   return (
     <section className={`${home ? 'justify-center' : 'justify-start sm:justify-center'} w-screen h-dvh overflow-hidden flex items-end flex-col justify-start sm:justify-center relative`}>
@@ -85,39 +84,38 @@ const TemplateSlideVertical = ({
           )}
           {home ? null : !link ? (
             <AnimatedTextButton duration={1.2} width="calc(100vw - 1.25rem)">
-              <Link href={`${section}`}
+              <a href={`${section}`}
                 className="w-40 h-11 text-xs relative top-1/2 left-2/4 mb-0 -translate-x-1/2 sm:w-40 sm:h-12 sm:text-sm hover:bg-brand1 hover:border-2 hover:border-solid hover:border-brand1 lg:w-44 lg:h-12 lg:text-base sm:top-auto sm:left-auto sm:translate-x-0 flex items-center justify-center text-white cursor-pointer no-underline font-extrabold whitespace-nowrap bg-transparent text-center leading-3 border-2 border-solid border-brand1 transition-all duration-300 ease-linear px-8 py-4"
               >
                 {textButton}
-              </Link>
+              </a>
             </AnimatedTextButton>
           ) : (
             <>
               {email && (
                 <AnimatedCharactersDetailsLeft duration={1.3}>
-                  <Link className="text-sm sm:text-3xl hover:text-brand5 mb-6 sm:mb-4 leading-6 sm:leading-normal text-white tracking-widest duration-300 no-underline" href={`mailto:${email}`} target="_blank" >
+                  <a className="text-sm sm:text-3xl hover:text-brand5 mb-6 sm:mb-4 leading-6 sm:leading-normal text-white tracking-widest duration-300 no-underline" href={`mailto:${email}`} target="_blank" >
                     {email}
-                  </Link>
+                  </a>
                 </AnimatedCharactersDetailsLeft>
               )}
               {github && (
                 <AnimatedCharactersDetailsLeft duration={1.4}>
-                  <Link className="text-sm sm:text-3xl hover:text-brand5 mb-6 sm:mb-4 leading-6 sm:leading-normal text-white tracking-widest duration-300 no-underline" href={`${github}`} target="_blank" > GitHub </Link>
+                  <a className="text-sm sm:text-3xl hover:text-brand5 mb-6 sm:mb-4 leading-6 sm:leading-normal text-white tracking-widest duration-300 no-underline" href={`${github}`} target="_blank" > GitHub </a>
                 </AnimatedCharactersDetailsLeft>
               )}
               <AnimatedCharactersDetailsLeft duration={1.5}>
                 <div className="flex gap-3 sm:gap-4 lg:gap-7">
                   {linkedin && (
-                    <Link className="text-sm sm:text-xl lg:text-3xl text-white hover:text-brand5 text-start duration-300 leading-normal no-underline align-top" href={`${linkedin}`} target="_blank" aria-label="linkedin" >
+                    <a className="text-sm sm:text-xl lg:text-3xl text-white hover:text-brand5 text-start duration-300 leading-normal no-underline align-top" href={`${linkedin}`} target="_blank" aria-label="linkedin" >
                       <FaLinkedinIn />
-                    </Link>
+                    </a>
                   )}
                   {instagram && (
-                    <Link className="text-sm sm:text-xl lg:text-3xl text-white hover:text-brand5 text-start duration-300 leading-normal no-underline align-top" href={`${instagram}`} target="_blank" aria-label="instagram" >
+                    <a className="text-sm sm:text-xl lg:text-3xl text-white hover:text-brand5 text-start duration-300 leading-normal no-underline align-top" href={`${instagram}`} target="_blank" aria-label="instagram" >
                       <FaInstagram />
-                    </Link>
+                    </a>
                   )}
-                  { }
                 </div>
               </AnimatedCharactersDetailsLeft>
             </>
@@ -139,7 +137,7 @@ const TemplateSlideVertical = ({
             >
               {!home ? (
                 <>
-                  <Link href={`${section}`}
+                  <a href={`${section}`}
                     className={`${cursor ? `cursor-pointer` : `cursor-default`} w-full h-full left-0 relative bg-cover bg-no-repeat bg-center z-0`}
                     style={{ backgroundImage: `url(${img})` }}
                   >
@@ -155,13 +153,13 @@ const TemplateSlideVertical = ({
                       whileInView={{ height: "100%", width: "0vw" }}
                       transition={{ ease: "anticipate", duration: .9, delay: .1 }}
                     />
-                  </Link>
+                  </a>
                   <AnimatedCharactersNumber>
-                    <Link href={`${section}`}
+                    <a href={`${section}`}
                       className={`${cursor ? `cursor-pointer` : `cursor-default`} ${abril.className} hidden sm:block sm:text-7xl lg:text-9xl break-all h-fit whitespace-normal leading-tight`}
                     >
                       {number}
-                    </Link>
+                    </a>
                   </AnimatedCharactersNumber>
                 </>
               ) : (
