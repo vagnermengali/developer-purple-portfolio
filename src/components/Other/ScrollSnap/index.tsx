@@ -21,12 +21,12 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
   }, [sections]);
 
   const handleScroll = useCallback((e: WheelEvent) => {
+    e.preventDefault();
+
     if (scrollBlocked) {
-      e.preventDefault();
       return;
     }
 
-    e.preventDefault();
     const direction = e.deltaY > 0 ? 1 : -1;
     let nextIndex = currentIndex + direction;
     nextIndex = Math.max(0, Math.min(nextIndex, sections.length - 1));
@@ -68,33 +68,6 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
     }
   }, [sections]);
 
-  const ScrollNavigation = ({ onNavigate, currentIndex, sections }: {
-    onNavigate: (sectionId: string) => void, currentIndex: number, sections: SectionScrollSnapProps[]
-  }) => {
-    return (
-      <div className="fixed flex items-center flex-col justify-center w-8 sm:w-10 h-full lg:w-10 lg:h-32 left-1/2 lg:left-10 z-30 bottom-0 lg:top-1/2 -rotate-90 lg:rotate-0 -translate-x-2/4 translate-y-64 lg:-translate-y-2/4 lg:translate-x-0">
-        <ul className="list-none w-full h-full flex flex-col items-center justify-center gap-7 lg:block">
-          {sections.map((section, index) => (
-            <li
-              className="w-full my-2 sm:my-4 lg:my-0 lg:mb-10 flex items-center h-6 lg:block relative lg:h-1"
-              key={section.id}
-            >
-              <motion.div
-                initial={{ width: '50%' }}
-                animate={{
-                  width: currentIndex === index ? '100%' : '50%',
-                }}
-                transition={{ duration: 0.5, ease: 'easeInOut' }}
-                className="block absolute top-1/2 lg:top-auto lg:relative z-50 h-1 lg:h-full cursor-pointer bg-white no-underline mb-10"
-                onClick={() => onNavigate(section.id)}
-              />
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  };
-
   return (
     <div ref={containerRef} className="w-screen h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth">
       <ScrollNavigation onNavigate={onNavigate} currentIndex={currentIndex} sections={sections} />
@@ -103,6 +76,33 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
           {section.component}
         </section>
       ))}
+    </div>
+  );
+};
+
+const ScrollNavigation = ({ onNavigate, currentIndex, sections }: {
+  onNavigate: (sectionId: string) => void, currentIndex: number, sections: SectionScrollSnapProps[]
+}) => {
+  return (
+    <div className="fixed flex items-center flex-col justify-center w-8 sm:w-10 h-full lg:w-10 lg:h-32 left-1/2 lg:left-10 z-30 bottom-0 lg:top-1/2 -rotate-90 lg:rotate-0 -translate-x-2/4 translate-y-64 lg:-translate-y-2/4 lg:translate-x-0">
+      <ul className="list-none w-full h-full flex flex-col items-center justify-center gap-7 lg:block">
+        {sections.map((section, index) => (
+          <li
+            className="w-full my-2 sm:my-4 lg:my-0 lg:mb-10 flex items-center h-6 lg:block relative lg:h-1"
+            key={section.id}
+          >
+            <motion.div
+              initial={{ width: '50%' }}
+              animate={{
+                width: currentIndex === index ? '100%' : '50%',
+              }}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
+              className="block absolute top-1/2 lg:top-auto lg:relative z-50 h-1 lg:h-full cursor-pointer bg-white no-underline mb-10"
+              onClick={() => onNavigate(section.id)}
+            />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
