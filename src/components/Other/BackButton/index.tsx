@@ -23,9 +23,6 @@ const BackButton = ({ route }: BackButtonProps) => {
                         id="Arrow"
                         width={"64"}
                         height={"34"}
-                        onClick={() => {
-                            router.push(`/#${route.substring(1)}`)
-                        }}
                     />
                 </Link>
             )}

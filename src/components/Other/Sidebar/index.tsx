@@ -30,7 +30,6 @@ const Sidebar = ({ linkedin, github, instagram }: SidebarProps) => {
                     <Link className="block text-white relative no-underline uppercase whitespace-nowrap tracking-widest font-normal leading-none lg:text-7xl text-4xl sm:text-5xl hover:before:w-full before:content-[''] before:top-1/2 before:absolute before:w-0 before:h-1 lg:before:h-2 before:bg-white before:ease-linear before:duration-300 before:m-auto before:left-0"
                         href={"/work"}
                         onClick={() => {
-                            router.push("/work");
                             setIsSideBarVisible(false);
                         }}
                     >
@@ -41,7 +40,6 @@ const Sidebar = ({ linkedin, github, instagram }: SidebarProps) => {
                     <Link className="block text-white relative no-underline uppercase whitespace-nowrap tracking-widest font-normal leading-none lg:text-7xl text-4xl sm:text-5xl hover:before:w-full before:content-[''] before:top-1/2 before:absolute before:w-0 before:h-1 lg:before:h-2 before:bg-white before:ease-linear before:duration-300 before:m-auto before:left-0"
                         href={"/about"}
                         onClick={() => {
-                            router.push("/about");
                             setIsSideBarVisible(false);
                         }}
                     >
