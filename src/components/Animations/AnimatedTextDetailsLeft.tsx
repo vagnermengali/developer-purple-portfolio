@@ -31,7 +31,7 @@ const AnimatedCharactersDetailsLeft = ({ children, duration, animate }: Children
         animate ? (
             <motion.div initial="hidden" animate="visible" variants={container}>
                 <div>
-                    <span style={{ overflow: "hidden", display: "block" }}>
+                    <span style={{ overflow: "hidden", display: "block", width: "fit-content" }}>
                         <motion.span style={{ display: "block" }} variants={item}>
                             {children}
                         </motion.span>
@@ -41,7 +41,7 @@ const AnimatedCharactersDetailsLeft = ({ children, duration, animate }: Children
         ) : (
             <motion.div initial="hidden" whileInView="visible" variants={container}>
                 <div>
-                    <span style={{ overflow: "hidden", display: "block" }}>
+                    <span style={{ overflow: "hidden", display: "block", width: "fit-content" }}>
                         <motion.span style={{ display: "block" }} variants={item}>
                             {children}
                         </motion.span>
