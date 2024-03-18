@@ -27,7 +27,15 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
       return;
     }
 
-    const deltaY = 'deltaY' in e ? (e as WheelEvent).deltaY : (e as TouchEvent).touches[0].clientY - (e as TouchEvent).targetTouches[0].clientY;
+    let deltaY = 0;
+    if ('deltaY' in e) {
+      deltaY = (e as WheelEvent).deltaY;
+    } else if ('touches' in e && e.touches.length > 0 && 'clientY' in e.touches[0]) {
+      const startY = (e as TouchEvent).touches[0].clientY;
+      const currentY = (e as TouchEvent).touches[0].clientY;
+      deltaY = currentY - startY;
+    }
+
     const direction = deltaY > 0 ? 1 : -1;
     let nextIndex = currentIndex + direction;
     nextIndex = Math.max(0, Math.min(nextIndex, sections.length - 1));
