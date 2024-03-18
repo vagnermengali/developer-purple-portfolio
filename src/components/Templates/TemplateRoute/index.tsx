@@ -9,12 +9,9 @@ import AnimatedTextButton from "@/components/Animations/AnimatedTextButton";
 
 import { TemplateRouteProps } from "@/interfaces/TemplateRouteProps/TemplateRouteProps";
 
-const TemplateRoute = ({ image, children, title, details, textButton, email, github, link }: TemplateRouteProps) => {
+const TemplateRoute = ({ image, children, title, details, textButton, link }: TemplateRouteProps) => {
   const { isMobile, isTablet } = useContext(GlobalContext);
 
-  useEffect(() => {
-    window.scrollTo(-100, -110);
-  }, []);
 
   return (
     <section className="w-screen h-full flex flex-col bg-gradient2">
