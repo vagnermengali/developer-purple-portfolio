@@ -1,9 +1,12 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { motion } from "framer-motion";
+import { useContext } from "react";
+import { GlobalContext } from "@/context/globalContext";
 
 import { ScrollSnapProps, SectionScrollSnapProps } from '@/interfaces/ScrollSnapProps/ScrollSnapProps';
 
 const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
+  const { isMobile } = useContext(GlobalContext)
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [scrollBlocked, setScrollBlocked] = useState(false);
@@ -20,7 +23,7 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
     return index >= 0 ? index : 0;
   }, [sections]);
 
-  const handleScroll = useCallback((e: WheelEvent) => {
+  const handleScrollDesktop = useCallback((e: WheelEvent) => {
     e.preventDefault();
 
     if (scrollBlocked) {
@@ -39,14 +42,63 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
     }
   }, [currentIndex, scrollBlocked, sections]);
 
-  useEffect(() => {
-    const container = containerRef.current;
-    container?.addEventListener('wheel', handleScroll, { passive: false });
+  const handleScrollMobile = useCallback((e: TouchEvent) => {
+    e.preventDefault();
 
-    return () => {
-      container?.removeEventListener('wheel', handleScroll);
+    if (scrollBlocked) {
+      return;
+    }
+
+    const touch = e.touches[0];
+    const startY = touch.pageY;
+
+    const handleTouchMove = (moveEvent: TouchEvent) => {
+      moveEvent.preventDefault();
+
+      const moveTouch = moveEvent.touches[0];
+      const deltaY = moveTouch.pageY - startY;
+
+      if (Math.abs(deltaY) < 50) {
+        return;
+      }
+
+      const direction = deltaY > 0 ? 1 : -1;
+      let nextIndex = currentIndex + direction;
+      nextIndex = Math.max(0, Math.min(nextIndex, sections.length - 1));
+
+      if (nextIndex !== currentIndex) {
+        setCurrentIndex(nextIndex);
+        setScrollBlocked(true);
+        setTimeout(() => setScrollBlocked(false), 1000);
+        window.location.hash = sections[nextIndex].id;
+      }
+
+      document.removeEventListener('touchmove', handleTouchMove);
     };
-  }, [handleScroll]);
+
+    document.addEventListener('touchmove', handleTouchMove);
+
+  }, [currentIndex, scrollBlocked, sections]);
+
+
+  useEffect(() => {
+    if (isMobile) {
+      const container = containerRef.current;
+      container?.addEventListener('touchmove', handleScrollMobile, { passive: false });
+
+      return () => {
+        container?.removeEventListener('touchmove', handleScrollMobile);
+      };
+    } else {
+      const container = containerRef.current;
+      container?.addEventListener('wheel', handleScrollDesktop, { passive: false });
+
+      return () => {
+        container?.removeEventListener('wheel', handleScrollDesktop);
+      };
+    }
+
+  }, [handleScrollDesktop, handleScrollMobile]);
 
   useEffect(() => {
     const initialIndex = hashToIndex(window.location.hash);
