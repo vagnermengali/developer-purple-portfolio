@@ -1,9 +1,12 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, { useRef, useState, useEffect, useCallback, useContext } from 'react';
 import { motion } from "framer-motion";
+
+import { GlobalContext } from "@/context/globalContext";
 
 import { ScrollSnapProps, SectionScrollSnapProps } from '@/interfaces/ScrollSnapProps/ScrollSnapProps';
 
 const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
+  const { isMobile } = useContext(GlobalContext);
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [scrollBlocked, setScrollBlocked] = useState(false);
@@ -39,14 +42,60 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
     }
   }, [currentIndex, scrollBlocked, sections]);
 
-  useEffect(() => {
-    const container = containerRef.current;
-    container?.addEventListener('wheel', handleScroll, { passive: false });
+  const handleTouch = useCallback((e: TouchEvent) => {
+    e.preventDefault();
 
-    return () => {
-      container?.removeEventListener('wheel', handleScroll);
+    if (scrollBlocked) {
+      return;
+    }
+
+    const touchStart = e.changedTouches[0].clientY;
+    let touchEnd = 0;
+
+    const onTouchMove = (moveEvent: TouchEvent) => {
+      touchEnd = moveEvent.changedTouches[0].clientY;
     };
-  }, [handleScroll]);
+
+    const onTouchEnd = () => {
+      const deltaY = touchEnd - touchStart;
+      const direction = deltaY > 0 ? 1 : -1;
+      let nextIndex = currentIndex + direction;
+      nextIndex = Math.max(0, Math.min(nextIndex, sections.length - 1));
+
+      if (nextIndex !== currentIndex) {
+        setCurrentIndex(nextIndex);
+        setScrollBlocked(true);
+        setTimeout(() => setScrollBlocked(false), 1000);
+        window.location.hash = sections[nextIndex].id;
+      }
+
+      document.removeEventListener('touchmove', onTouchMove);
+      document.removeEventListener('touchend', onTouchEnd);
+    };
+
+    document.addEventListener('touchmove', onTouchMove);
+    document.addEventListener('touchend', onTouchEnd);
+  }, [currentIndex, scrollBlocked, sections]);
+
+
+  useEffect(() => {
+    if (isMobile) {
+      const container = containerRef.current;
+      container?.addEventListener('touchmove', handleTouch, { passive: false });
+
+      return () => {
+        container?.removeEventListener('touchmove', handleTouch);
+      };
+    } else {
+      const container = containerRef.current;
+      container?.addEventListener('wheel', handleScroll, { passive: false });
+
+      return () => {
+        container?.removeEventListener('wheel', handleScroll);
+      };
+    }
+
+  }, [handleScroll, handleTouch]);
 
   useEffect(() => {
     const initialIndex = hashToIndex(window.location.hash);
