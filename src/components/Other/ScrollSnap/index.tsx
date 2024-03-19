@@ -49,31 +49,36 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
       return;
     }
 
-    const touchStart = e.changedTouches[0].clientY;
-    let touchEnd = 0;
+    const touchStartY = e.touches[0].clientY;
 
     const onTouchMove = (moveEvent: TouchEvent) => {
-      touchEnd = moveEvent.changedTouches[0].clientY;
+      const touchEndY = moveEvent.touches[0].clientY;
+      const deltaY = touchEndY - touchStartY;
+      const sensitivity = 50; // Adjust sensitivity as needed
+      if (Math.abs(deltaY) > sensitivity) {
+        const direction = deltaY > 0 ? 1 : -1;
+        let nextIndex = currentIndex + direction;
+        nextIndex = Math.max(0, Math.min(nextIndex, sections.length - 1));
+
+        if (nextIndex !== currentIndex) {
+          setCurrentIndex(nextIndex);
+          setScrollBlocked(true);
+          setTimeout(() => setScrollBlocked(false), 1000);
+          // Optionally, you can update the window hash here
+          // window.location.hash = sections[nextIndex].id;
+        }
+      }
     };
+
+    // Attach event listener for touch move
+    document.addEventListener('touchmove', onTouchMove, { passive: true });
 
     const onTouchEnd = () => {
-      const deltaY = touchEnd - touchStart;
-      const direction = deltaY > 0 ? 1 : -1;
-      let nextIndex = currentIndex + direction;
-      nextIndex = Math.max(0, Math.min(nextIndex, sections.length - 1));
-
-      if (nextIndex !== currentIndex) {
-        setCurrentIndex(nextIndex);
-        setScrollBlocked(true);
-        setTimeout(() => setScrollBlocked(false), 1000);
-        window.location.hash = sections[nextIndex].id;
-      }
-
+      // Clean up event listener
       document.removeEventListener('touchmove', onTouchMove);
-      document.removeEventListener('touchend', onTouchEnd);
     };
 
-    document.addEventListener('touchmove', onTouchMove);
+    // Attach event listener for touch end
     document.addEventListener('touchend', onTouchEnd);
   }, [currentIndex, scrollBlocked, sections]);
 
