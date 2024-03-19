@@ -58,13 +58,14 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
       const moveTouch = moveEvent.touches[0];
       const deltaY = moveTouch.pageY - startY;
 
-      if (Math.abs(deltaY) < 50) {
+      const touchThreshold = 50;
+
+      if (Math.abs(deltaY) < touchThreshold) {
         return;
       }
 
-      const direction = deltaY < 0 ? 1 : -1; // Inverter a direção aqui
-      let nextIndex = currentIndex + direction;
-      nextIndex = Math.max(0, Math.min(nextIndex, sections.length - 1));
+      const direction = deltaY < 0 ? 1 : -1; // Scroll up is negative deltaY
+      let nextIndex = Math.max(0, Math.min(currentIndex + direction, sections.length - 1));
 
       if (nextIndex !== currentIndex) {
         setCurrentIndex(nextIndex);
@@ -78,7 +79,12 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
 
     document.addEventListener('touchmove', handleTouchMove);
 
+    return () => {
+      document.removeEventListener('touchmove', handleTouchMove);
+    };
+
   }, [currentIndex, scrollBlocked, sections]);
+
 
   useEffect(() => {
     if (isMobile) {
