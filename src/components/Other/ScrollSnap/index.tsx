@@ -20,6 +20,8 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
     return index >= 0 ? index : 0;
   }, [sections]);
 
+  const isMobile = typeof window !== 'undefined' && 'ontouchstart' in window;
+
   const handleScroll = useCallback((e: WheelEvent | TouchEvent) => {
     e.preventDefault();
 
@@ -35,7 +37,7 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
       const touch = e.touches[0];
       const deltaY = touch.clientY - startY.current;
       if (Math.abs(deltaY) >= touchThreshold) {
-        direction = deltaY > 0 ? 1 : -1;
+        direction = deltaY > 0 ? (isMobile ? -1 : 1) : (isMobile ? 1 : -1); // Invert direction on mobile
         startY.current = touch.clientY;
       }
     }
@@ -49,7 +51,7 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
       setTimeout(() => setScrollBlocked(false), 1000);
       window.location.hash = sections[nextIndex].id;
     }
-  }, [currentIndex, scrollBlocked, sections]);
+  }, [currentIndex, scrollBlocked, sections, isMobile]);
 
   // Track touch start position and threshold
   const startY = useRef<number>(0);
@@ -59,7 +61,7 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
   useEffect(() => {
     const handleScrollEvent = (e: WheelEvent | TouchEvent) => handleScroll(e);
 
-    if ('ontouchstart' in window) {
+    if (isMobile) {
       // Mobile device
       window.addEventListener('touchstart', (e) => {
         startY.current = e.touches[0].clientY;
@@ -74,7 +76,8 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
       window.removeEventListener('wheel', handleScrollEvent);
       window.removeEventListener('touchmove', handleScrollEvent);
     };
-  }, [handleScroll]);
+  }, [handleScroll, isMobile]);
+
 
   useEffect(() => {
     const initialIndex = hashToIndex(window.location.hash);
