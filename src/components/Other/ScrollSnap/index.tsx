@@ -62,7 +62,7 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
         return;
       }
 
-      const direction = deltaY > 0 ? 1 : -1;
+      const direction = deltaY < 0 ? 1 : -1; // Inverter a direção aqui
       let nextIndex = currentIndex + direction;
       nextIndex = Math.max(0, Math.min(nextIndex, sections.length - 1));
 
@@ -79,7 +79,6 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
     document.addEventListener('touchmove', handleTouchMove);
 
   }, [currentIndex, scrollBlocked, sections]);
-
 
   useEffect(() => {
     if (isMobile) {
