@@ -20,14 +20,26 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
     return index >= 0 ? index : 0;
   }, [sections]);
 
-  const handleScroll = useCallback((e: WheelEvent) => {
+  const handleScroll = useCallback((e: WheelEvent | TouchEvent) => {
     e.preventDefault();
 
     if (scrollBlocked) {
       return;
     }
 
-    const direction = e.deltaY > 0 ? 1 : -1;
+    let direction = 0;
+    if (e instanceof WheelEvent) {
+      direction = e.deltaY > 0 ? 1 : -1;
+    } else if (e instanceof TouchEvent) {
+      // Detect touch movement on Y axis
+      const touch = e.touches[0];
+      const deltaY = touch.clientY - startY.current;
+      if (Math.abs(deltaY) >= touchThreshold) {
+        direction = deltaY > 0 ? 1 : -1;
+        startY.current = touch.clientY;
+      }
+    }
+
     let nextIndex = currentIndex + direction;
     nextIndex = Math.max(0, Math.min(nextIndex, sections.length - 1));
 
@@ -39,12 +51,28 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
     }
   }, [currentIndex, scrollBlocked, sections]);
 
+  // Track touch start position and threshold
+  const startY = useRef<number>(0);
+  const touchThreshold = 50; // Adjust as needed
+
+  // Effect to attach event listeners based on device type
   useEffect(() => {
-    const container = containerRef.current;
-    container?.addEventListener('wheel', handleScroll, { passive: false });
+    const handleScrollEvent = (e: WheelEvent | TouchEvent) => handleScroll(e);
+
+    if ('ontouchstart' in window) {
+      // Mobile device
+      window.addEventListener('touchstart', (e) => {
+        startY.current = e.touches[0].clientY;
+      });
+      window.addEventListener('touchmove', handleScrollEvent, { passive: false });
+    } else {
+      // Desktop
+      window.addEventListener('wheel', handleScrollEvent, { passive: false });
+    }
 
     return () => {
-      container?.removeEventListener('wheel', handleScroll);
+      window.removeEventListener('wheel', handleScrollEvent);
+      window.removeEventListener('touchmove', handleScrollEvent);
     };
   }, [handleScroll]);
 
