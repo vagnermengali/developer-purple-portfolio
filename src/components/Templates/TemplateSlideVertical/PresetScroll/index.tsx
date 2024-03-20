@@ -143,7 +143,7 @@ const TemplateSlideVertical = ({
               </AnimatedCharactersDetailsLeft>
               <Bars />
               <AnimatedCharactersDetailsLeft duration={1.1}>
-                <div className="w-full sm:w-2/5 h-min sm:h-20 pr-36 sm:pr-36 mb-3 sm:mb-2 lg:mb-8">
+                <div className="w-full max-w-72 sm:w-1/2 h-min sm:h-20 pr-24 sm:pr-0 mb-3 sm:mb-2 lg:mb-8 lg:w-3/5 lg:pr-0 lg:h-min lg:max-w-md">
                   <h3 className="whitespace-normal break-all tracking-widest leading-normal text-white font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
                 </div>
               </AnimatedCharactersDetailsLeft>
