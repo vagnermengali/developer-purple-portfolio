@@ -28,7 +28,7 @@ const Header = ({ linkedin, github, instagram, name, route }: HeaderProps) => {
 
     return (
         <>
-            <header className={`fixed top-0 w-full flex justify-between items-center py-3 px-5 sm:px-10 sm:py-5 z-50 transition-all duration-300 ease-linear ${isScrolled ? 'bg-brand2 bg-opacity-70 backdrop-blur-xl' : 'bg-transparent'}`}>
+            <header className={`fixed top-0 w-full flex justify-between items-center py-4 px-5 sm:px-10 sm:py-5 z-50 transition-all duration-300 ease-linear ${isScrolled ? 'bg-brand2 bg-opacity-70 backdrop-blur-xl' : 'bg-transparent'}`}>
                 <Link href={"/#main"} className="h-full text-base md:text-2xl tracking-widest no-underline text-white duration-300 hover:text-brand5" aria-label="logo">
                     {name}
                 </Link>
