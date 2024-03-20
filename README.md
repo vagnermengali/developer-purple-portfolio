@@ -15,7 +15,7 @@
 
 # Documentação em português
 
-Este é um portfólio desenvolvido para fins de estudo utilizando as seguintes tecnologias: Next.js, Tailwind CSS, Framer Motion e TypeScript.
+Este é um portfólio desenvolvido para beneficiar desenvolvedores que ainda não têm seu portfólio ou desenvolvedores que desejam um portfólio já pronto. Foi criado para fins de estudo utilizando as seguintes tecnologias: Next.js, Tailwind CSS, Framer Motion e TypeScript.
 
 ## Tecnologias Utilizadas
 
@@ -79,7 +79,7 @@ Este projeto está sob a [Licença MIT](https://opensource.org/licenses/MIT).
 
 # Documentation in English
 
-This is a portfolio developed for study purposes using the following technologies: Next.js, Tailwind CSS, Framer Motion e TypeScript.
+This is a portfolio developed to benefit developers who don't yet have their portfolio or developers who want a ready-made portfolio. It was created for study purposes using the following technologies: Next.js, Tailwind CSS, Framer Motion, and TypeScript.
 
 ## Technologies Used
 
