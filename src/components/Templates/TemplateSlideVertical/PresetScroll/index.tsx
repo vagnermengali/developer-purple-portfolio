@@ -60,7 +60,7 @@ const TemplateSlideVertical = ({
               </AnimatedCharactersDetailsLeft>
               <Bars />
               <AnimatedCharactersDetailsLeft duration={1.1}>
-                <h3 className="whitespace-normal break-all tracking-widest leading-normal text-white font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
+                <h3 className="whitespace-normal tracking-widest leading-normal text-white font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
               </AnimatedCharactersDetailsLeft>
             </div>
             <div className="w-full sm:w-3/4 h-full flex relative">
@@ -127,7 +127,7 @@ const TemplateSlideVertical = ({
               </Link>
               <AnimatedCharactersNumber>
                 <Link href={`${section}`}
-                  className={`${cursor ? `cursor-pointer` : `cursor-default`} ${abril.className} hidden sm:block sm:text-7xl lg:text-9xl break-all h-fit whitespace-normal leading-tight`}
+                  className={`${cursor ? `cursor-pointer` : `cursor-default`} ${abril.className} hidden sm:block sm:text-7xl lg:text-9xl h-fit whitespace-normal leading-tight`}
                 >
                   {number}
                 </Link>
@@ -144,7 +144,7 @@ const TemplateSlideVertical = ({
               <Bars />
               <AnimatedCharactersDetailsLeft duration={1.1}>
                 <div className="w-full max-w-72 sm:w-1/2 h-min sm:h-20 pr-24 sm:pr-0 mb-3 sm:mb-2 lg:mb-8 lg:w-3/5 lg:pr-0 lg:h-min lg:max-w-md">
-                  <h3 className="whitespace-normal break-all tracking-widest leading-normal text-white font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
+                  <h3 className="whitespace-normal tracking-widest leading-normal text-white font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
                 </div>
               </AnimatedCharactersDetailsLeft>
 
@@ -182,7 +182,7 @@ const TemplateSlideVertical = ({
               </Link>
               <AnimatedCharactersNumber>
                 <Link href={`${section}`}
-                  className={`${cursor ? `cursor-pointer` : `cursor-default`} ${abril.className} hidden sm:block sm:text-7xl lg:text-9xl break-all h-fit whitespace-normal leading-tight`}
+                  className={`${cursor ? `cursor-pointer` : `cursor-default`} ${abril.className} hidden sm:block sm:text-7xl lg:text-9xl h-fit whitespace-normal leading-tight`}
                 >
                   {number}
                 </Link>
