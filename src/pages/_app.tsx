@@ -13,7 +13,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <DarkDiv key={"dark-div"} />
+
       <GlobalContext key={"global-context"}>
         <Layout
           key={"layout"}
@@ -24,9 +24,8 @@ const App = ({ Component, pageProps }: AppProps) => {
           email={"contatovagnermengali@gmail.com"}
           route={router.route}
         >
-          <AnimatePresence mode="wait">
-            <Component key={"component"} {...pageProps} />
-          </AnimatePresence>
+          <DarkDiv key={"dark-div"} />
+          <Component key={"component"} {...pageProps} />
         </Layout>
       </GlobalContext >
     </>
