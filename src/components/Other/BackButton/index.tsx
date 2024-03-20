@@ -8,7 +8,7 @@ import Icon from "@/components/Other/Icon";
 import { BackButtonProps } from "@/interfaces/BackButtonProps/BackButtonProps";
 
 const BackButton = ({ route }: BackButtonProps) => {
-    const { router, isMobile } = useContext(GlobalContext);
+    const { router} = useContext(GlobalContext);
 
     return (
         <>
