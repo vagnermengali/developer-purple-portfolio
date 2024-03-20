@@ -7,7 +7,7 @@ import { TemplateVerticalFreeProps } from "@/interfaces/TemplateSlideVerticalPro
 const TemplateSlideVerticalFreeScroll = ({ children, number }: TemplateVerticalFreeProps) => {
   return (
     <motion.section
-      className="w-full h-full flex items-center justify-center flex-col relative z-10"
+      className="container w-full h-full flex items-center justify-center flex-col relative z-10" /* teste limite */
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ transition: { duration: 100 } }}
