@@ -3,9 +3,9 @@ export const TransitionVariants = {
         height: "100%",
     },
     animate: {
-        height: "0%",
+        height: "0",
     },
     exit: {
-        height: ["0%", "100%"],
+        height: ["0", "100%"],
     },
 };
