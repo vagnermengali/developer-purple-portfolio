@@ -77,14 +77,14 @@ const TemplateSlideVertical = ({
               <Bars />
               {email && (
                 <AnimatedCharactersDetailsLeft duration={1.3}>
-                  <Link className="text-sm sm:text-3xl hover:text-brand5 mb-6 sm:mb-4 leading-6 sm:leading-normal text-white tracking-widest duration-300 no-underline" href={`mailto:${email}`} target="_blank" >
+                  <Link aria-label={email} className="text-sm sm:text-3xl hover:text-brand5 mb-6 sm:mb-4 leading-6 sm:leading-normal text-white tracking-widest duration-300 no-underline" href={`mailto:${email}`} target="_blank" >
                     {email}
                   </Link>
                 </AnimatedCharactersDetailsLeft>
               )}
               {github && (
                 <AnimatedCharactersDetailsLeft duration={1.4}>
-                  <Link className="text-sm sm:text-3xl hover:text-brand5 mb-6 sm:mb-4 leading-6 sm:leading-normal text-white tracking-widest duration-300 no-underline" href={`${github}`} target="_blank" > GitHub </Link>
+                  <Link aria-label={github} className="text-sm sm:text-3xl hover:text-brand5 mb-6 sm:mb-4 leading-6 sm:leading-normal text-white tracking-widest duration-300 no-underline" href={`${github}`} target="_blank" > GitHub </Link>
                 </AnimatedCharactersDetailsLeft>
               )}
               <AnimatedCharactersDetailsLeft duration={1.5}>
@@ -108,7 +108,7 @@ const TemplateSlideVertical = ({
               whileInView={{ scale: 1, right: isMobile ? "0" : "-6%", width: isMobile ? "80%" : "67%" }}
               transition={{ duration: 0.3, delay: 0.1, damping: 35, stiffness: 200 }}
             >
-              <Link href={`${section}`}
+              <Link aria-label={section} href={`${section}`}
                 className={`${cursor ? `cursor-pointer` : `cursor-default`} w-full h-full left-0 relative bg-cover bg-no-repeat bg-center z-0`}
                 style={{ backgroundImage: `url(${img})` }}
               >
@@ -126,7 +126,7 @@ const TemplateSlideVertical = ({
                 />
               </Link>
               <AnimatedCharactersNumber>
-                <Link href={`${section}`}
+                <Link aria-label={section} href={`${section}`}
                   className={`${cursor ? `cursor-pointer` : `cursor-default`} ${abril.className} hidden sm:block sm:text-7xl lg:text-9xl h-fit whitespace-normal leading-tight`}
                 >
                   {number}
@@ -149,7 +149,7 @@ const TemplateSlideVertical = ({
               </AnimatedCharactersDetailsLeft>
 
               <AnimatedTextButton duration={1.2} width="calc(100vw - 1.25rem)">
-                <Link href={`${section}`}
+                <Link aria-label={textButton} href={`${section}`}
                   className="w-40 h-11 text-xs relative top-1/2 left-2/4 mb-0 -translate-x-1/2 sm:w-40 sm:h-12 sm:text-sm hover:bg-brand1 hover:border-2 hover:border-solid hover:border-brand1 lg:w-44 lg:h-12 lg:text-base sm:top-auto sm:left-auto sm:translate-x-0 flex items-center justify-center text-white cursor-pointer no-underline font-extrabold whitespace-nowrap bg-transparent text-center leading-3 border-2 border-solid border-brand1 transition-all duration-300 ease-linear px-8 py-4"
                 >
                   {textButton}
@@ -163,7 +163,7 @@ const TemplateSlideVertical = ({
               transition={{ duration: 0.3, delay: 0.1, damping: 35, stiffness: 200 }}
             >
 
-              <Link href={`${section}`}
+              <Link aria-label={section} href={`${section}`}
                 className={`${cursor ? `cursor-pointer` : `cursor-default`} w-full h-full left-0 relative bg-cover bg-no-repeat bg-center z-0`}
                 style={{ backgroundImage: `url(${img})` }}
               >
@@ -181,7 +181,7 @@ const TemplateSlideVertical = ({
                 />
               </Link>
               <AnimatedCharactersNumber>
-                <Link href={`${section}`}
+                <Link aria-label={section} href={`${section}`}
                   className={`${cursor ? `cursor-pointer` : `cursor-default`} ${abril.className} hidden sm:block sm:text-7xl lg:text-9xl h-fit whitespace-normal leading-tight`}
                 >
                   {number}
