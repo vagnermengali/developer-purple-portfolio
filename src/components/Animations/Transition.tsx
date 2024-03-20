@@ -1,17 +1,11 @@
 export const TransitionVariants = {
     initial: {
-        translateY: "0%",
+        height: "100%",
     },
     animate: {
-        translateY: "-100%",
-        transition: {
-            duration: 0.3,
-        },
+        height: "0%",
     },
     exit: {
-        translateY: "0%",
-        transition: {
-            duration: 0.3,
-        },
+        height: ["0%", "100%"],
     },
 };
