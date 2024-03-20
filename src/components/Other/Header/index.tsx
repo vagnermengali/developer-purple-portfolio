@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
@@ -9,9 +10,25 @@ import LineScroll from "@/components/Other/LineScroll";
 import { HeaderProps } from "@/interfaces/HeaderProps/HeaderProps";
 
 const Header = ({ linkedin, github, instagram, name, route }: HeaderProps) => {
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.pageYOffset;
+
+            const scrollThreshold = 50;
+
+            setIsScrolled(scrollTop > scrollThreshold);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
         <>
-            <header className="fixed top-0 w-full flex justify-between items-center p-5 sm:pb-0 sm:px-10 sm:pt-10 z-50">
+            <header className={`fixed top-0 w-full flex justify-between items-center py-3 px-5 sm:px-10 sm:py-5 z-50 transition-all duration-300 ease-linear ${isScrolled ? 'bg-brand2 bg-opacity-70 backdrop-blur-xl' : 'bg-transparent'}`}>
                 <Link href={"/#main"} className="h-full text-base md:text-2xl tracking-widest no-underline text-white duration-300 hover:text-brand5" aria-label="logo">
                     {name}
                 </Link>
