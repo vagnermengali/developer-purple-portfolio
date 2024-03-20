@@ -1,110 +1,162 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react';
-import { motion } from "framer-motion";
+# Developer Blue Portfolio
 
-import { ScrollSnapProps, SectionScrollSnapProps } from '@/interfaces/ScrollSnapProps/ScrollSnapProps';
+<div align="center">
+  <img src='https://github.com/vagnermengali/developer-blue-portfolio/blob/main/public/perfomace.webp'/>
+</div>
 
-const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [scrollBlocked, setScrollBlocked] = useState(false);
+[![Banner](https://github.com/vagnermengali/developer-blue-portfolio/blob/main/public/portfolio.webp)](https://developer-red-portfolio-vagnermengali.vercel.app/)
 
-  const sections = [
-    { component: main, id: 'main' },
-    { component: work, id: 'work' },
-    { component: about, id: 'about' },
-    { component: contact, id: 'contact' },
-  ];
+<div align="center">
+   <a href="#documentação-em-português">Leia em Português |</a>
+  <a href="#documentation-in-english">Read in English</a>
+</div>
 
-  const hashToIndex = useCallback((hash: string) => {
-    const index = sections.findIndex(section => `#${section.id}` === hash);
-    return index >= 0 ? index : 0;
-  }, [sections]);
+---
 
-  const handleScroll = useCallback((e: WheelEvent) => {
-    e.preventDefault();
+# Documentação em português
 
-    if (scrollBlocked) {
-      return;
-    }
+Este é um portfólio desenvolvido para fins de estudo utilizando as seguintes tecnologias: Next.js, Tailwind CSS, @emailjs/browser,
+Swiper, Sonner, React Hook Form, Framer Motion, React Countup, TypeScript e Radix UI.
 
-    const direction = e.deltaY > 0 ? 1 : -1;
-    let nextIndex = currentIndex + direction;
-    nextIndex = Math.max(0, Math.min(nextIndex, sections.length - 1));
+## Tecnologias Utilizadas
 
-    if (nextIndex !== currentIndex) {
-      setCurrentIndex(nextIndex);
-      setScrollBlocked(true);
-      setTimeout(() => setScrollBlocked(false), 1000);
-      window.location.hash = sections[nextIndex].id;
-    }
-  }, [currentIndex, scrollBlocked, sections]);
+- **Next.js**: Um framework React para construir aplicações web.
+- **Tailwind CSS**: Um framework CSS de utilidade em primeiro lugar para desenvolvimento rápido e flexível.
+- **@emailjs/browser**: Uma biblioteca JavaScript para enviar e-mails diretamente do navegador.
+- **Swiper**: Uma biblioteca de slides moderna para construir carrosséis e sliders.
+- **Sonner**: (Inserir breve descrição da tecnologia, se aplicável)
+- **React Hook Form**: Uma biblioteca para formulários em React, com suporte a hooks.
+- **Framer Motion**: Uma biblioteca de animação para React.
+- **React Countup**: Um componente React para criar animações de contagem.
+- **TypeScript**: Um superset do JavaScript que adiciona tipagem estática ao código.
+- **Radix UI**: Uma biblioteca de componentes acessíveis e estilizados, projetada para ser altamente modular e fácil de usar em suas aplicações React.
 
-  useEffect(() => {
-    const container = containerRef.current;
-    container?.addEventListener('wheel', handleScroll, { passive: false });
+## Rotas Disponíveis
 
-    return () => {
-      container?.removeEventListener('wheel', handleScroll);
-    };
-  }, [handleScroll]);
+- **/home**: Página inicial do portfólio.
+- **/projects**: Página com projetos concluídos.
+- **/contact**: Página de contato.
 
-  useEffect(() => {
-    const initialIndex = hashToIndex(window.location.hash);
-    setCurrentIndex(initialIndex);
-  }, [hashToIndex]);
+## Instalação
 
-  useEffect(() => {
-    const currentSection = sections[currentIndex].component;
-    if (currentSection?.props.id) {
-      document.getElementById(currentSection.props.id)?.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [currentIndex, sections]);
+Para executar este projeto localmente, siga as instruções abaixo:
 
-  const onNavigate = useCallback((sectionId: string) => {
-    const sectionIndex = sections.findIndex(section => section.id === sectionId);
-    if (sectionIndex >= 0) {
-      setCurrentIndex(sectionIndex);
-      window.location.hash = sectionId;
-    }
-  }, [sections]);
+1. Clone o repositório:
 
-  return (
-    <div ref={containerRef} className="w-screen h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth">
-      <ScrollNavigation onNavigate={onNavigate} currentIndex={currentIndex} sections={sections} />
-      {sections.map((section, index) => (
-        <section key={index} id={section.id} className="snap-start h-screen w-screen flex justify-center items-center">
-          {section.component}
-        </section>
-      ))}
-    </div>
-  );
-};
+   ```bash
+   git clone https://github.com/vagnermengali/developer-blue-portfolio.git
 
-const ScrollNavigation = ({ onNavigate, currentIndex, sections }: {
-  onNavigate: (sectionId: string) => void, currentIndex: number, sections: SectionScrollSnapProps[]
-}) => {
-  return (
-    <div className="fixed flex items-center flex-col justify-center w-8 sm:w-10 h-full lg:w-10 lg:h-32 left-1/2 lg:left-10 z-30 bottom-0 lg:top-1/2 -rotate-90 lg:rotate-0 -translate-x-2/4 translate-y-64 lg:-translate-y-2/4 lg:translate-x-0">
-      <ul className="list-none w-full h-full flex flex-col items-center justify-center gap-7 lg:block">
-        {sections.map((section, index) => (
-          <li
-            className="w-full my-2 sm:my-4 lg:my-0 lg:mb-10 flex items-center h-6 lg:block relative lg:h-1"
-            key={section.id}
-          >
-            <motion.div
-              initial={{ width: '50%' }}
-              animate={{
-                width: currentIndex === index ? '100%' : '50%',
-              }}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
-              className="block absolute top-1/2 lg:top-auto lg:relative z-50 h-1 lg:h-full cursor-pointer bg-white no-underline mb-10"
-              onClick={() => onNavigate(section.id)}
-            />
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+2. Acesse o diretório do projeto:
 
-export default ScrollSnap;
+   ```bash
+   cd developer-blue-portfolio
+
+3. Instale as dependências:
+
+   ```bash
+   yarn install
+
+4. Inicie o servidor de desenvolvimento:
+
+   ```bash
+   yarn dev
+
+5. Acesse a aplicação no seu navegador através da rota:
+
+   ```bash
+   http://localhost:3000/
+
+Acesse a aplicação no seu navegador através do seguinte endereço: [http://localhost:3000/](http://localhost:3000/). Explore os arquivos do projeto usando seu editor de código preferido e faça quaisquer alterações necessárias.
+
+## Configurando o Formulário de Contato por E-mail
+
+Siga [este tutorial](https://www.youtube.com/watch?v=Zbg1BHOVzRg) para aprender como configurar um formulário de contato por e-mail usando JavaScript.
+
+## Implantação
+
+Este projeto está disponível em: [https://developer-blue-portfolio-vagnermengali.vercel.app/](https://developer-blue-portfolio-vagnermengali.vercel.app/)
+
+## Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir um PR ou relatar problemas.
+
+Se este projeto foi útil para você, considere deixar uma estrela (⭐) no repositório para apoiar o desenvolvimento.
+
+## Licença
+
+Este projeto está sob a [Licença MIT](https://opensource.org/licenses/MIT).
+
+---
+
+# Documentation in English
+
+This is a portfolio developed for study purposes using the following technologies: Next.js, Tailwind CSS, @emailjs/browser,
+Swiper, Sonner, React Hook Form, Framer Motion, React Countup, TypeScript and Radix UI.
+
+## Technologies Used
+
+- **Next.js**: A React framework for building web applications.
+- **Tailwind CSS**: A utility-first CSS framework for rapid and flexible development.
+- **@emailjs/browser**: A JavaScript library for sending emails directly from the browser.
+- **Swiper**: A modern slide library for building carousels and sliders.
+- **Sonner**: (Insert brief description of the technology, if applicable)
+- **React Hook Form**: A library for forms in React, with hooks support.
+- **Framer Motion**: An animation library for React.
+- **React Countup**: A React component for creating counting animations.
+- **TypeScript**: A superset of JavaScript that adds static typing to the code.
+- **Radix UI**: A library of accessible and styled components, designed to be highly modular and easy to use in your React applications.
+
+## Available Routes
+
+- **/home**: Portfolio's home page.
+- **/projects**: Page with completed projects.
+- **/contact**: Contact page.
+
+## Installation
+
+To run this project locally, follow the instructions below:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/vagnermengali/developer-blue-portfolio.git
+
+2. Access the project directory:
+
+   ```bash
+   cd developer-blue-portfolio
+
+3. Install the dependencies:
+
+   ```bash
+   yarn install
+
+4. Start the development server:
+
+   ```bash
+   yarn dev
+
+5. Access the application in your browser through the route:
+
+   ```bash
+   http://localhost:3000/
+
+Access the application in your browser through the following address: [http://localhost:3000/](http://localhost:3000/). Explore the project files using your preferred code editor and make any necessary changes.
+
+## Setting up the Email Contact Form
+
+Follow [this tutorial](https://www.youtube.com/watch?v=Zbg1BHOVzRg) to learn how to set up an email contact form using JavaScript.
+
+## Deploy
+
+This project is available at: [https://developer-blue-portfolio-vagnermengali.vercel.app/](https://developer-blue-portfolio-vagnermengali.vercel.app/)
+
+## Contribution
+
+Contributions are welcome! Feel free to open a PR or report issues.
+
+If this project has been helpful to you, consider leaving a star (⭐) on the repository to support development.
+
+## License
+
+This project is under the [MIT License](https://opensource.org/licenses/MIT).
