@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { GlobalContext } from "@/context/globalContext";
 
 const LineScroll = () => {
-  const { router } = useContext(GlobalContext);
+  const { router, isMobile, isTablet } = useContext(GlobalContext);
   const [scroll, setScroll] = useState(false);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const LineScroll = () => {
               initial={{ bottom: scroll ? "5rem" : "-11rem" }}
               animate={{ bottom: scroll ? "-11rem" : "5rem" }}
             >
-              Role para baixo
+              {isMobile ? "Arraste para baixo" : isTablet ? "Arraste para baixo" : "Role para baixo"}
             </motion.p>
           </div>
         )

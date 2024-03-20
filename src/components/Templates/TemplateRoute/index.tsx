@@ -20,7 +20,7 @@ const TemplateRoute = ({ image, children, title, details, textButton, link }: Te
           <AnimatedCharactersDetailsLeft duration={1} animate={true} titleFit={true}>
             <h2 className="text-white leading-none tracking-widest font-medium w-full text-4xl sm:text-6xl lg:text-8xl sm:whitespace-nowrap">{title}</h2>
           </AnimatedCharactersDetailsLeft>
-          <Bars />
+          <Bars animate/>
           <AnimatedCharactersDetailsLeft duration={1.1} animate>
             <div className="w-full min-w-48 mb-1 h-12 lg:mb-8 lg:h-20 lg:w-full lg:min-w-full lg:pr-60">
               <h3 className="w-full text-white text-sm leading-4 sm:text-xl sm:leading-5 lg:text-3xl lg:leading-10 tracking-widest break-all whitespace-normal">{details}</h3>
