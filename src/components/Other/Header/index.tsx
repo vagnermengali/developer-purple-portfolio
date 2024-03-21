@@ -29,18 +29,18 @@ const Header = ({ linkedin, github, instagram, name, route }: HeaderProps) => {
     return (
         <>
             <header className={`fixed top-0 w-full flex justify-between items-center py-4 px-5 sm:px-10 sm:py-5 z-50 transition-all duration-300 ease-linear ${isScrolled ? 'bg-brand2 bg-opacity-70 backdrop-blur-xl' : 'bg-transparent'}`}>
-                <Link href={"/#main"} className="h-full text-base md:text-2xl tracking-widest no-underline text-white duration-300 hover:text-brand5" aria-label="logo">
+                <Link href={"/#main"} className="h-full text-base md:text-2xl tracking-widest no-underline text-white duration-500 transition-all hover:text-brand5" aria-label="logo">
                     {name}
                 </Link>
                 <nav className="flex justify-center items-center">
                     <div className="hidden items-center justify-center mr-24 gap-8 sm:flex">
-                        <Link className="flex items-center text-white duration-300 m-auto no-underline text-start align-top text-3xl leading-10 hover:text-brand5" href={`${linkedin}`} target="_blank" aria-label="linkedin">
+                        <Link className="text-white text-3xl hover:text-brand5 duration-500 transition-all" href={`${linkedin}`} target="_blank" aria-label="linkedin">
                             <FaLinkedinIn />
                         </Link>
-                        <Link className="flex items-center text-white duration-300 m-auto no-underline text-start align-top text-3xl leading-10 hover:text-brand5" href={`${instagram}`} target="_blank" aria-label="instagram">
+                        <Link className="text-white text-3xl hover:text-brand5 duration-500 transition-all" href={`${instagram}`} target="_blank" aria-label="instagram">
                             <FaInstagram />
                         </Link>
-                        <Link className="h-full text-base md:text-2xl tracking-widest no-underline text-white duration-300 hover:text-brand5" href={`${github}`} target="_blank" aria-label="github">
+                        <Link className="h-full text-base md:text-2xl tracking-widest no-underline text-white duration-500 hover:text-brand5 transition-all" href={`${github}`} target="_blank" aria-label="github">
                             GitHub
                         </Link>
                     </div>
