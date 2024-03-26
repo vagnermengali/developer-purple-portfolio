@@ -40,11 +40,11 @@ const TemplateSlideVertical = ({
   return (
     <section className={`${home ? 'justify-center' : 'justify-start sm:justify-center'} w-screen h-dvh overflow-hidden flex items-end flex-col justify-start sm:justify-center relative`}>
       <motion.div
-        className=" w-full h-full flex justify-end sm:justify-center my-0 mx-auto sm:mx-0"
-        initial={{ scaleX: 1, scaleY: 1 }}
+        className="flex justify-end sm:justify-center my-0 mx-auto sm:mx-0 w-full h-full"
+        initial={{ width: "100%", height: "100%" }}
         whileInView={{
-          scaleX: home ? .9 : isMobile ? 1 : .75,
-          scaleY: home ? .9 : isMobile ? .85 : .75
+          width: home ? "100%" : isMobile ? "100%" : "75%",
+          height: home ? "100%" : isMobile ? "85%" : "75%"
         }}
         transition={{
           duration: home ? 1.3 : 1,
@@ -63,8 +63,21 @@ const TemplateSlideVertical = ({
                 <h3 className="whitespace-normal tracking-widest leading-normal text-white font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
               </AnimatedCharactersDetailsLeft>
             </div>
-            <div className="w-full sm:w-3/4 h-full flex relative">
-              <div className="clip-custom w-full h-3/4 sm:h-full left-0 sm:left-12 relative bg-cover bg-no-repeat bg-center z-10" style={{ backgroundImage: `url(${img})` }} />
+            <div className="w-full sm:w-3/4 h-full flex relative items-start sm:items-center justify-center sm:justify-end mt-16 sm:mt-0">
+              <motion.div
+                className="clip-custom w-full h-3/4 sm:h-full left-0 sm:left-36 relative bg-cover bg-no-repeat bg-center z-10"
+                style={{ backgroundImage: `url(${img})` }}
+                initial={{ scaleY: 1, scaleX: 1 }}
+                whileInView={{
+                  scaleX: isMobile ? .9 : home ? .9 : .78,
+                  scaleY: isMobile ? .85 : home ? .9 : .75
+                }}
+                transition={{
+                  duration: home ? 1.3 : 1,
+                  type: home ? "none" : "spring",
+                  damping: home ? 0 : 15
+                }}
+              />
             </div>
           </>
         )}
@@ -157,7 +170,7 @@ const TemplateSlideVertical = ({
               </AnimatedTextButton>
             </div>
             <motion.div
-              className="flex static sm:relative my-auto mt-3 mx-auto sm:my-0 sm:mx-0 h-3/4 sm:h-auto"
+              className="flex static sm:relative my-auto mx-auto sm:my-0 sm:mx-0 h-3/4 sm:h-auto"
               initial={{ scale: isMobile ? 1 : .7, width: isMobile ? "80%" : "67%", right: isMobile ? "0" : "-6%" }}
               whileInView={{ scale: 1, right: isMobile ? "0" : "-6%", width: isMobile ? "80%" : "67%" }}
               transition={{ duration: 0.3, delay: 0.1, damping: 35, stiffness: 200 }}
