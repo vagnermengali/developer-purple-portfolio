@@ -40,11 +40,11 @@ const TemplateSlideVertical = ({
   return (
     <section className={`${home ? 'justify-center' : 'justify-start sm:justify-center'} w-screen h-dvh overflow-hidden flex items-end flex-col justify-start sm:justify-center relative`}>
       <motion.div
-        className="flex justify-end sm:justify-center my-0 mx-auto sm:mx-0"
-        initial={{ height: "100%", width: "100%" }}
+        className="flex justify-end sm:justify-center my-0 mx-auto sm:mx-0 w-full h-full"
+        initial={{ scaleX: 1, scaleY: 1 }}
         whileInView={{
-          width: home ? "90%" : isMobile ? "100%" : "78%",
-          height: home ? "90%" : isMobile ? "65%" : "75%"
+          scaleX: home ? .9 : isMobile ? 1 : .75,
+          scaleY: home ? .9 : isMobile ? .65 : .75
         }}
         transition={{
           duration: home ? 1.3 : 1,
