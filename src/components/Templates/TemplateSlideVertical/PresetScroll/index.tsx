@@ -44,7 +44,7 @@ const TemplateSlideVertical = ({
         initial={{ width: "100%", height: "100%" }}
         whileInView={{
           width: home ? "100%" : isMobile ? "100%" : "75%",
-          height: home ? "100%" : isMobile ? "85%" : "75%"
+          height: home ? "100%" : isMobile ? "100%" : "75%"
         }}
         transition={{
           duration: home ? 1.3 : 1,
