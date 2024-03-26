@@ -14,8 +14,8 @@ const Sidebar = ({ linkedin, github, instagram }: SidebarProps) => {
     return (
         <motion.div
             className="fixed bg-gradient1 z-40 w-screen h-dvh overflow-hidden flex flex-col items-center justify-center transition-all duration-500 ease-in-out"
-            initial={{ width: "100%", translateY: "0" }}
-            animate={{ width: "100%", translateY: isSideBarVisible ? "0" : "-3000px" }}
+            initial={{ width: "100%", height: "0%" }}
+            animate={{ width: "100%", height: isSideBarVisible ? "100%" : "0%" }}
             transition={{ ease: "anticipate", delay: -5 }}
         >
             <motion.ul
