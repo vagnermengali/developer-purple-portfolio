@@ -20,6 +20,7 @@ const Seo = ({ title, description, routes }: SeoProps) => {
             <link rel="icon" href="/favicon48x48.webp" sizes="48x48" />
             <link rel="icon" href="/favicon96x96.webp" sizes="96x96" />
             <link rel="icon" href="/favicon144x144.webp" sizes="144x144" />
+            <link rel="icon" href="/favicon512x512.webp" sizes="512x512" />
             <meta name="description" content={description} />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />

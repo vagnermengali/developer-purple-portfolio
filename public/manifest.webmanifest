@@ -11,7 +11,7 @@
   "start_url": "/",
   "icons": [
     {
-      "src": "/favicon.png",
+      "src": "/favicon521x512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
@@ -36,6 +36,12 @@
     {
       "src": "/favicon144x144.webp",
       "sizes": "144x144",
+      "type": "image/webp",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/favicon521x512.webp",
+      "sizes": "512x512",
       "type": "image/webp",
       "purpose": "maskable any"
     }
