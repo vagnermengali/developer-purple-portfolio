@@ -7,7 +7,11 @@
 }
 
 body {
-  @apply bg-brand3 text-brand4;
+  @apply bg-brand2 text-brand4;
+}
+
+.next-error-h1, .next-error-h1 ~ div h2 {
+  @apply text-brand4;
 }
 
 @layer utilities {

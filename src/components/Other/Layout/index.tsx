@@ -23,7 +23,7 @@ const Layout = ({ github, linkedin, instagram, name, email, route, children }: a
                     name={name}
                     route={route}
                 />
-                <main>{children}</main>
+                <main className="bg-brand2">{children}</main>
                 <Footer email={email} github={github} />
             </div>
         </AnimatePresence>
