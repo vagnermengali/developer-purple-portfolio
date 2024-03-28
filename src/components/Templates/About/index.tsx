@@ -14,7 +14,7 @@ const About = () => {
   return (
     <section className="w-screen h-full bg-gradient2">
       <TemplateRoute
-        image={"/about.png"}
+        image={"/about.webp"}
         title={"Sobre Mim"}
         details={"Eu amo Design, Tecnologia e Histórias."}
         textButton={"Mais sobre mim"}
