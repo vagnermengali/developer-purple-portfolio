@@ -35,7 +35,7 @@ const Card = (props: any) => {
 
   return (
     <motion.li
-      className="w-full min-w-full sm:min-w-80 h-72 relative bg-cover bg-no-repeat bg-center cursor-pointer group overflow-hidden"
+      className="w-full min-w-full sm:min-w-80 h-72 relative bg-cover bg-no-repeat bg-center cursor-pointer group overflow-hidden drop-shadow-md" 
       style={{ backgroundImage: `url(${image})` }}
       key={id}
       variants={Item}
