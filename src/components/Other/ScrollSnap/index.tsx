@@ -128,7 +128,7 @@ const ScrollNavigation = ({ onNavigate, currentIndex, sections }: {
                 width: currentIndex === index ? '100%' : '50%',
               }}
               transition={{ duration: 0.5, ease: 'easeInOut' }}
-              className="block absolute top-1/2 lg:top-auto lg:relative z-50 h-1 lg:h-full cursor-pointer bg-white no-underline mb-10"
+              className="block absolute top-1/2 lg:top-auto lg:relative z-50 h-1 lg:h-full cursor-pointer bg-brand4 no-underline mb-10"
               onClick={() => onNavigate(section.id)}
             />
           </li>

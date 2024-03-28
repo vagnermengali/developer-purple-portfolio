@@ -1,7 +1,7 @@
 export const Work = [
     {
         id: 1,
-        name: "Portfolio",
+        name: "Portfolio Open Source",
         description: "",
         tags: ["NextJs", "TypeScript", "TailwindCSS"],
         image: "/portfolio.webp",
@@ -13,15 +13,15 @@ export const Work = [
         id: 2,
         name: "YRprey",
         description: "",
-        tags: ["NextJs", "TypeScript", "Styled Components"],
+        tags: ["NextJs", "TypeScript", "TailwindCSS"],
         image: "/yrprey.webp",
-        screens: { desktop: true, mobile: false },
-        demo: "https://yrprey-git-main-vagnermengali.vercel.app/",
+        screens: { desktop: true, mobile: true },
+        demo: "https://yrprey-vagnermengali.vercel.app/",
         github: "https://github.com/vagnermengali/yrprey"
     },
     {
         id: 3,
-        name: "Portfolio",
+        name: "Portfolio Open Source",
         description: "",
         tags: ["NextJs", "TypeScript", "TailwindCSS"],
         image: "/portfolio-green.webp",
@@ -41,7 +41,7 @@ export const Work = [
     },
     {
         id: 5,
-        name: "Portfolio",
+        name: "Portfolio Open Source",
         description: "",
         tags: ["NextJs", "TypeScript", "TailwindCSS"],
         image: "/portfolio-blue.webp",

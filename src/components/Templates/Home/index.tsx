@@ -17,7 +17,7 @@ const Home = () => {
             details={"Desenvolvedor de software."}
             section={"/main"}
             number={""}
-            img={"/vagner-mengali.webp"}
+            img={"/vagner-mengali.png"}
             home
             cursor={false}
           />
@@ -29,7 +29,7 @@ const Home = () => {
             textButton={"Mostre-me mais"}
             section={"/work"}
             number={"01"}
-            img={isMobile ? "/work-mobile.webp" : isTablet ? "/work-mobile.webp" : "/work.webp"}
+            img={"/work.png"}
             cursor={true}
           />
         }
@@ -40,7 +40,7 @@ const Home = () => {
             textButton={"Mostre-me mais"}
             section={"/about"}
             number={"02"}
-            img={isMobile ? "/about-mobile.webp" : isTablet ? "/about-mobile.webp" : "/about.webp"}
+            img={"/about.png"}
             cursor={true}
           />
         }
@@ -54,7 +54,7 @@ const Home = () => {
             github={"https://github.com/vagnermengali"}
             linkedin={"https://www.linkedin.com/in/vagnermengali/"}
             instagram={"https://www.instagram.com/vagner.mengali/"}
-            img={isMobile ? "/contact-mobile.webp" : isTablet ? "/contact-mobile.webp" : "/contact.webp"}
+            img={"/contact.png"}
             cursor={false}
           />
         }

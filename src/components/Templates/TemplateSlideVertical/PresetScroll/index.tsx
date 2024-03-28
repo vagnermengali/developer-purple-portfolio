@@ -56,14 +56,14 @@ const TemplateSlideVertical = ({
           <>
             <div className={`top-96 sm:top-1/4 left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
               <AnimatedCharactersDetailsLeft duration={1}>
-                <h2 className="w-80  lg:w-5/6 text-4xl sm:text-6xl lg:text-8xl text-white font-medium leading-none tracking-widest"> {title} </h2>
+                <h2 className="w-80  lg:w-5/6 text-4xl sm:text-6xl lg:text-8xl text-brand8 font-medium leading-none tracking-widest"> {title} </h2>
               </AnimatedCharactersDetailsLeft>
               <Bars />
               <AnimatedCharactersDetailsLeft duration={1.1}>
-                <h3 className="whitespace-normal tracking-widest leading-normal text-white font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
+                <h3 className="whitespace-normal tracking-widest leading-normal text-brand4 font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
               </AnimatedCharactersDetailsLeft>
             </div>
-            <div className="w-full sm:w-3/4 h-full flex relative items-start sm:items-center justify-center sm:justify-end mt-16 sm:mt-0">
+            <div className="w-full sm:w-3/4 h-full flex relative items-start sm:items-center justify-center sm:justify-end mt-6 sm:mt-0">
               <motion.div
                 className="clip-custom w-full h-3/4 sm:h-full left-0 sm:left-36 relative bg-cover bg-no-repeat bg-center z-10"
                 style={{ backgroundImage: `url(${img})` }}
@@ -85,30 +85,30 @@ const TemplateSlideVertical = ({
           <>
             <div className={`top-80 sm:top-40 left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
               <AnimatedCharactersDetailsLeft duration={1}>
-                <h2 className="w-5/6 text-4xl sm:text-6xl lg:text-8xl text-white font-medium leading-none tracking-widest"> {title} </h2>
+                <h2 className="w-5/6 text-4xl sm:text-6xl lg:text-8xl text-brand8 font-medium leading-none tracking-widest"> {title} </h2>
               </AnimatedCharactersDetailsLeft>
               <Bars />
               {email && (
                 <AnimatedCharactersDetailsLeft duration={1.3}>
-                  <Link aria-label={email} className="text-sm sm:text-3xl hover:text-brand5 mb-6 sm:mb-4 leading-6 sm:leading-normal text-white tracking-widest duration-300 no-underline" href={`mailto:${email}`} target="_blank" >
+                  <Link aria-label={email} className="text-sm sm:text-3xl hover:text-brand9 mb-6 sm:mb-4 leading-6 sm:leading-normal text-brand4 tracking-widest duration-300 no-underline" href={`mailto:${email}`} target="_blank" >
                     {email}
                   </Link>
                 </AnimatedCharactersDetailsLeft>
               )}
               {github && (
                 <AnimatedCharactersDetailsLeft duration={1.4}>
-                  <Link aria-label={github} className="text-sm sm:text-3xl hover:text-brand5 mb-6 sm:mb-4 leading-6 sm:leading-normal text-white tracking-widest duration-300 no-underline" href={`${github}`} target="_blank" > GitHub </Link>
+                  <Link aria-label={github} className="text-sm sm:text-3xl hover:text-brand9 mb-6 sm:mb-4 leading-6 sm:leading-normal text-brand4 tracking-widest duration-300 no-underline" href={`${github}`} target="_blank" > GitHub </Link>
                 </AnimatedCharactersDetailsLeft>
               )}
               <AnimatedCharactersDetailsLeft duration={1.5}>
                 <div className="flex gap-3 sm:gap-4 lg:gap-7">
                   {linkedin && (
-                    <Link className="text-sm sm:text-xl lg:text-3xl text-white hover:text-brand5 text-start duration-300 leading-normal no-underline align-top" href={`${linkedin}`} target="_blank" aria-label="linkedin" >
+                    <Link className="text-sm sm:text-xl lg:text-3xl text-brand4 hover:text-brand9 text-start duration-300 leading-normal no-underline align-top" href={`${linkedin}`} target="_blank" aria-label="linkedin" >
                       <FaLinkedinIn />
                     </Link>
                   )}
                   {instagram && (
-                    <Link className="text-sm sm:text-xl lg:text-3xl text-white hover:text-brand5 text-start duration-300 leading-normal no-underline align-top" href={`${instagram}`} target="_blank" aria-label="instagram" >
+                    <Link className="text-sm sm:text-xl lg:text-3xl text-brand4 hover:text-brand9 text-start duration-300 leading-normal no-underline align-top" href={`${instagram}`} target="_blank" aria-label="instagram" >
                       <FaInstagram />
                     </Link>
                   )}
@@ -116,7 +116,7 @@ const TemplateSlideVertical = ({
               </AnimatedCharactersDetailsLeft>
             </div>
             <motion.div
-              className="flex static sm:relative my-auto mx-auto sm:my-0 sm:mx-0 h-3/4 sm:h-auto"
+              className="flex static sm:relative mb-auto mt-16 mx-auto sm:mx-0 sm:mb-0 sm:mt-0 h-1/2 sm:h-full"
               initial={{ scale: isMobile ? 1 : .7, width: isMobile ? "80%" : "67%", right: isMobile ? "0" : "-6%" }}
               whileInView={{ scale: 1, right: isMobile ? "0" : "-6%", width: isMobile ? "80%" : "67%" }}
               transition={{ duration: 0.3, delay: 0.1, damping: 35, stiffness: 200 }}
@@ -152,25 +152,25 @@ const TemplateSlideVertical = ({
           <>
             <div className={`top-80 sm:top-40 left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
               <AnimatedCharactersDetailsLeft duration={1}>
-                <h2 className="w-80 lg:w-5/6 text-4xl sm:text-6xl lg:text-8xl text-white font-medium leading-none tracking-widest"> {title} </h2>
+                <h2 className="w-80 lg:w-5/6 text-4xl sm:text-6xl lg:text-8xl text-brand8 font-medium leading-none tracking-widest"> {title} </h2>
               </AnimatedCharactersDetailsLeft>
               <Bars />
               <AnimatedCharactersDetailsLeft duration={1.1}>
                 <div className="w-full max-w-72 sm:w-1/2 h-min sm:h-20 pr-24 sm:pr-0 mb-3 sm:mb-2 lg:mb-8 lg:w-3/5 lg:pr-0 lg:h-min lg:max-w-md">
-                  <h3 className="whitespace-normal tracking-widest leading-normal text-white font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
+                  <h3 className="whitespace-normal tracking-widest leading-normal text-brand4 font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
                 </div>
               </AnimatedCharactersDetailsLeft>
 
               <AnimatedTextButton duration={1.2} width="calc(100vw - 1.25rem)">
                 <Link aria-label={textButton} href={`${section}`}
-                  className="w-40 h-11 text-xs relative top-1/2 left-2/4 mb-0 -translate-x-1/2 sm:w-40 sm:h-12 sm:text-sm hover:bg-brand1 hover:border-2 hover:border-solid hover:border-brand1 lg:w-44 lg:h-12 lg:text-base sm:top-auto sm:left-auto sm:translate-x-0 flex items-center justify-center text-white cursor-pointer no-underline font-extrabold whitespace-nowrap bg-transparent text-center leading-3 border-2 border-solid border-brand1 transition-all duration-300 ease-linear px-8 py-4"
+                  className="w-40 h-11 text-xs relative top-1/2 left-2/4 mb-0 -translate-x-1/2 sm:w-40 sm:h-12 sm:text-sm hover:bg-brand1 hover:border-2 hover:border-solid hover:border-brand1 lg:w-44 lg:h-12 lg:text-base sm:top-auto sm:left-auto sm:translate-x-0 flex items-center justify-center text-brand4 hover:text-white cursor-pointer no-underline font-extrabold whitespace-nowrap bg-transparent text-center leading-3 border-2 border-solid border-brand1 transition-all duration-300 ease-linear px-8 py-4"
                 >
                   {textButton}
                 </Link>
               </AnimatedTextButton>
             </div>
             <motion.div
-              className="flex static sm:relative my-auto mx-auto sm:my-0 sm:mx-0 h-3/4 sm:h-auto"
+              className="flex static sm:relative mb-auto mt-16 mx-auto sm:mx-0 sm:mb-0 sm:mt-0 h-1/2 sm:h-full"
               initial={{ scale: isMobile ? 1 : .7, width: isMobile ? "80%" : "67%", right: isMobile ? "0" : "-6%" }}
               whileInView={{ scale: 1, right: isMobile ? "0" : "-6%", width: isMobile ? "80%" : "67%" }}
               transition={{ duration: 0.3, delay: 0.1, damping: 35, stiffness: 200 }}

@@ -23,14 +23,14 @@ const Sidebar = ({ linkedin, github, instagram }: SidebarProps) => {
             >
                 <li>
                     <AnimatedTextSidebar>
-                        <Link aria-label="Página inicial" className="block text-white relative no-underline uppercase whitespace-nowrap tracking-widest font-normal leading-none lg:text-7xl text-4xl sm:text-5xl hover:before:w-full before:content-[''] before:top-1/2 before:absolute before:w-0 before:h-1 lg:before:h-2 before:bg-white before:ease-linear before:duration-300 before:m-auto before:left-0" href={"/#main"} onClick={() => setTimeout(() => { setIsSideBarVisible(false); }, 700)}>
+                        <Link aria-label="Página inicial" className="block text-white relative no-underline uppercase whitespace-nowrap tracking-widest font-normal leading-none lg:text-7xl text-4xl sm:text-5xl hover:before:w-full before:content-[''] before:top-1/2 before:absolute before:w-0 before:h-1 lg:before:h-2 before:bg- before:ease-linear before:duration-300 before:m-auto before:left-0" href={"/#main"} onClick={() => setTimeout(() => { setIsSideBarVisible(false); }, 700)}>
                             Página inicial
                         </Link>
                     </AnimatedTextSidebar>
                 </li>
                 <li>
                     <AnimatedTextSidebar>
-                        <Link aria-label="Trabalhos" className="block text-white relative no-underline uppercase whitespace-nowrap tracking-widest font-normal leading-none lg:text-7xl text-4xl sm:text-5xl hover:before:w-full before:content-[''] before:top-1/2 before:absolute before:w-0 before:h-1 lg:before:h-2 before:bg-white before:ease-linear before:duration-300 before:m-auto before:left-0"
+                        <Link aria-label="Trabalhos" className="block text-white relative no-underline uppercase whitespace-nowrap tracking-widest font-normal leading-none lg:text-7xl text-4xl sm:text-5xl hover:before:w-full before:content-[''] before:top-1/2 before:absolute before:w-0 before:h-1 lg:before:h-2 before:bg- before:ease-linear before:duration-300 before:m-auto before:left-0"
                             href={"/work"}
                             onClick={() => {
                                 setIsSideBarVisible(false);
@@ -42,7 +42,7 @@ const Sidebar = ({ linkedin, github, instagram }: SidebarProps) => {
                 </li>
                 <li>
                     <AnimatedTextSidebar>
-                        <Link aria-label="Sobre mim" className="block text-white relative no-underline uppercase whitespace-nowrap tracking-widest font-normal leading-none lg:text-7xl text-4xl sm:text-5xl hover:before:w-full before:content-[''] before:top-1/2 before:absolute before:w-0 before:h-1 lg:before:h-2 before:bg-white before:ease-linear before:duration-300 before:m-auto before:left-0"
+                        <Link aria-label="Sobre mim" className="block text-white relative no-underline uppercase whitespace-nowrap tracking-widest font-normal leading-none lg:text-7xl text-4xl sm:text-5xl hover:before:w-full before:content-[''] before:top-1/2 before:absolute before:w-0 before:h-1 lg:before:h-2 before:bg- before:ease-linear before:duration-300 before:m-auto before:left-0"
                             href={"/about"}
                             onClick={() => {
                                 setIsSideBarVisible(false);
@@ -54,7 +54,7 @@ const Sidebar = ({ linkedin, github, instagram }: SidebarProps) => {
                 </li>
                 <li>
                     <AnimatedTextSidebar>
-                        <Link aria-label="Contato" className="block text-white relative no-underline uppercase whitespace-nowrap tracking-widest font-normal leading-none lg:text-7xl text-4xl sm:text-5xl hover:before:w-full before:content-[''] before:top-1/2 before:absolute before:w-0 before:h-1 lg:before:h-2 before:bg-white before:ease-linear before:duration-300 before:m-auto before:left-0" href={"/#contact"} onClick={() => setTimeout(() => { setIsSideBarVisible(false); }, 500)}>
+                        <Link aria-label="Contato" className="block text-white relative no-underline uppercase whitespace-nowrap tracking-widest font-normal leading-none lg:text-7xl text-4xl sm:text-5xl hover:before:w-full before:content-[''] before:top-1/2 before:absolute before:w-0 before:h-1 lg:before:h-2 before:bg- before:ease-linear before:duration-300 before:m-auto before:left-0" href={"/#contact"} onClick={() => setTimeout(() => { setIsSideBarVisible(false); }, 500)}>
                             Contato
                         </Link>
                     </AnimatedTextSidebar>

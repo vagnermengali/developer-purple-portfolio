@@ -11,7 +11,7 @@ const Work = () => {
   return (
     <section className="w-screen h-full bg-gradient2">
       <TemplateRoute
-        image={isMobile ? "/work-mobile.webp" : isTablet ? "/work-mobile.webp" : "/work.webp"}
+        image={"/work.webp"}
         title={"Meus Trabalhos"}
         details={"Lista de todos os trabalhos e projetos feitos por mim."}
         textButton={"Todos os trabalhos"}
