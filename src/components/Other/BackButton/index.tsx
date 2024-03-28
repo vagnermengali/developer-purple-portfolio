@@ -10,8 +10,6 @@ import { BackButtonProps } from "@/interfaces/BackButtonProps/BackButtonProps";
 const BackButton = ({ route, isScrolled }: BackButtonProps) => {
     const { router } = useContext(GlobalContext);
 
-    console.log(isScrolled)
-
     return (
         <>
             {(router.pathname == "/about" || router.pathname == "/work") && (

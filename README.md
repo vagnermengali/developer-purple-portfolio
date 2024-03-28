@@ -6,7 +6,7 @@
   <img src='https://github.com/vagnermengali/developer-blue-portfolio/blob/main/public/perfomace.webp'/>
 </div>
 
-[![Banner](https://github.com/vagnermengali/developer-red-portfolio/blob/main/public/portfolio.webp)](https://developer-red-portfolio-vagnermengali.vercel.app/)
+[![Banner](https://github.com/vagnermengali/developer-white-portfolio/blob/main/public/portfolio-white.webp)](https://developer-white-portfolio-vagnermengali.vercel.app/)
 
 <div align="center">
    <a href="#documentação-em-português">Leia em Português |</a>
@@ -39,12 +39,12 @@ Para executar este projeto localmente, siga as instruções abaixo:
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/vagnermengali/developer-red-portfolio.git
+   git clone https://github.com/vagnermengali/developer-white-portfolio.git
 
 2. Acesse o diretório do projeto:
 
    ```bash
-   cd developer-red-portfolio
+   cd developer-white-portfolio
 
 3. Instale as dependências:
 
@@ -65,7 +65,7 @@ Acesse a aplicação no seu navegador através do seguinte endereço: [http://lo
 
 ## Implantação
 
-Este projeto está disponível em: [https://developer-red-portfolio-vagnermengali.vercel.app/](https://developer-red-portfolio-vagnermengali.vercel.app/)
+Este projeto está disponível em: [https://developer-white-portfolio-vagnermengali.vercel.app/](https://developer-white-portfolio-vagnermengali.vercel.app/)
 
 ## Contribuição
 
@@ -103,12 +103,12 @@ To run this project locally, follow the instructions below:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/vagnermengali/developer-red-portfolio.git
+   git clone https://github.com/vagnermengali/developer-white-portfolio.git
 
 2. Access the project directory:
 
    ```bash
-   cd developer-red-portfolio
+   cd developer-white-portfolio
 
 3. Install the dependencies:
 
@@ -129,7 +129,7 @@ Access the application in your browser through the following address: [http://lo
 
 ## Deploy
 
-This project is available at: [https://developer-red-portfolio-vagnermengali.vercel.app/](https://developer-red-portfolio-vagnermengali.vercel.app/)
+This project is available at: [https://developer-white-portfolio-vagnermengali.vercel.app/](https://developer-white-portfolio-vagnermengali.vercel.app/)
 
 ## Contribution
 

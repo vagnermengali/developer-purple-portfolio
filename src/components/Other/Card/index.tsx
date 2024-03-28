@@ -44,12 +44,12 @@ const Card = (props: any) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="absolute inset-0 bg-gradient1 backdrop-blur-sm opacity-0 group-hover:opacity-80 transition-all duration-700"></div>
+      <div className="absolute inset-0 bg-black/30 group-hover:bg-gradient1  group-hover:backdrop-blur-sm opacity-50 group-hover:opacity-80 transition-all duration-700"></div>
       <div
         className="absolute w-full h-full z-10 flex justify-between flex-col py-3 px-5 sm:py-6 sm:px-8"
       >
         <AnimatedTexDown>
-          <h2 className="text-xl text-white">{name}</h2>
+          <h2 className="text-xl text-white whitespace-nowrap">{name}</h2>
           <div className="flex items-center justify-end gap-2 overflow-auto w-1/2 sm:w-full scrollbar-none">
             {screens.desktop && <FaDesktop className="text-white" />}
             {screens.mobile && <FaMobileAlt className="text-white" />}

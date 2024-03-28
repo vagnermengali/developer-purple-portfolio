@@ -4,7 +4,7 @@ export const Work = [
         name: "Portfolio Open Source",
         description: "",
         tags: ["NextJs", "TypeScript", "TailwindCSS"],
-        image: "/portfolio.webp",
+        image: "/portfolio-white.webp",
         screens: { desktop: true, mobile: true },
         demo: "https://portfolio-vagner-mengali-vagnermengali.vercel.app/",
         github: "https://github.com/vagnermengali/portfolio-vagner-mengali"

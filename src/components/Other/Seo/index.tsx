@@ -28,11 +28,11 @@ const Seo = ({ title, description, routes }: SeoProps) => {
             <meta property="og:type" content="website" key="ogtype" />
             <meta property="og:url" content="https://vagnermengali.com/" />
             <meta property="og:image:alt" content={description} />
-            <meta property="og:image" content="/portfolio.webp" />
+            <meta property="og:image" content="/portfolio-white.webp" />
             <meta name="twitter:title" content="Vagner Mengali" />
             <meta name="twitter:site" content="@vagnermengali" />
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:image" content="/portfolio.webp" />
+            <meta name="twitter:image" content="/portfolio-white.webp" />
             <meta name="twitter:description" content={description} />
             <meta property="al:ios:app_name" content="Vagner Mengali" />
             <meta property="al:ios:url" content="https://vagnermengali.com/" />
