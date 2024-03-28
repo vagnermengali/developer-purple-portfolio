@@ -14,7 +14,7 @@ const BackButton = ({ route, isScrolled }: BackButtonProps) => {
         <>
             {(router.pathname == "/about" || router.pathname == "/work") && (
                 <Link
-                    className={`${!isScrolled ? "text-white sm:text-brand4" : "text-brand4"} fixed z-30 block overflow-hidden top-16 left-5 hover:left-7 sm:top-24 hover:sm:left-12 sm:left-10 w-16 duration-300 transition-all font-normal"`}
+                    className={`${!isScrolled ? "text-white sm:text-brand4" : "text-brand4"} fixed z-40 block overflow-hidden top-16 left-5 hover:left-7 sm:top-24 hover:sm:left-12 sm:left-10 w-16 duration-300 transition-all font-normal"`}
                     href={`/#${route.substring(1)}`}
                     aria-label="return"
                 >
