@@ -100,10 +100,10 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
   }, [sections]);
 
   return (
-    <div ref={containerRef} className="w-screen h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth">
+    <div ref={containerRef} className="w-screen h-dvh overflow-y-auto snap-y snap-mandatory scroll-smooth">
       <ScrollNavigation onNavigate={onNavigate} currentIndex={currentIndex} sections={sections} />
       {sections.map((section, index) => (
-        <section key={index} id={section.id} className="snap-start h-screen w-screen flex justify-center items-center">
+        <section key={index} id={section.id} className="snap-start h-dvh w-screen flex justify-center items-center">
           {section.component}
         </section>
       ))}
@@ -115,7 +115,7 @@ const ScrollNavigation = ({ onNavigate, currentIndex, sections }: {
   onNavigate: (sectionId: string) => void, currentIndex: number, sections: SectionScrollSnapProps[]
 }) => {
   return (
-    <div className="fixed flex items-center flex-col justify-center w-8 sm:w-10 h-full lg:w-10 lg:h-32 left-1/2 lg:left-10 z-30 bottom-0 lg:top-1/2 -rotate-90 lg:rotate-0 -translate-x-2/4 translate-y-64 lg:-translate-y-2/4 lg:translate-x-0">
+    <div className="fixed flex items-center flex-col justify-center w-8 sm:w-10 h-full lg:w-10 lg:h-32 left-1/2 lg:left-10 z-30 -bottom-7 lg:bottom-0 lg:top-1/2 -rotate-90 lg:rotate-0 -translate-x-2/4 translate-y-64 lg:-translate-y-2/4 lg:translate-x-0">
       <ul className="list-none w-full h-full flex flex-col items-center justify-center gap-7 lg:block">
         {sections.map((section, index) => (
           <li

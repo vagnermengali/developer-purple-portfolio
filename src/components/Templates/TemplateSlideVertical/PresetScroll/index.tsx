@@ -54,7 +54,7 @@ const TemplateSlideVertical = ({
       >
         {home && (
           <>
-            <div className={`top-96 sm:top-1/4 left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
+            <div className={`top-[60%] sm:bottom-0 sm:top-1/4 left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
               <AnimatedCharactersDetailsLeft duration={1}>
                 <h2 className="w-80  lg:w-5/6 text-4xl sm:text-6xl lg:text-8xl text-brand8 font-medium leading-none tracking-widest"> {title} </h2>
               </AnimatedCharactersDetailsLeft>
@@ -63,7 +63,7 @@ const TemplateSlideVertical = ({
                 <h3 className="whitespace-normal tracking-widest leading-normal text-brand4 font-light text-sm sm:text-xl lg:text-3xl"> {details} </h3>
               </AnimatedCharactersDetailsLeft>
             </div>
-            <div className="w-full sm:w-3/4 h-full flex relative items-start sm:items-center justify-center sm:justify-end mt-6 sm:mt-0">
+            <div className="w-full sm:w-3/4 h-full flex relative items-start sm:items-center justify-center sm:justify-end sm:mt-0">
               <motion.div
                 className="clip-custom w-full h-3/4 sm:h-full left-0 sm:left-36 relative bg-cover bg-no-repeat bg-center z-10"
                 style={{ backgroundImage: `url(${img})` }}
@@ -83,7 +83,7 @@ const TemplateSlideVertical = ({
         )}
         {link && (
           <>
-            <div className={`top-80 sm:top-40 left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
+            <div className={`top-[58%] sm:top-40 left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
               <AnimatedCharactersDetailsLeft duration={1}>
                 <h2 className="w-5/6 text-4xl sm:text-6xl lg:text-8xl text-brand8 font-medium leading-none tracking-widest"> {title} </h2>
               </AnimatedCharactersDetailsLeft>
@@ -150,7 +150,7 @@ const TemplateSlideVertical = ({
         )}
         {details && !home && (
           <>
-            <div className={`top-80 sm:top-40 left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
+            <div className={`top-[58%] sm:top-40 left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
               <AnimatedCharactersDetailsLeft duration={1}>
                 <h2 className="w-80 lg:w-5/6 text-4xl sm:text-6xl lg:text-8xl text-brand8 font-medium leading-none tracking-widest"> {title} </h2>
               </AnimatedCharactersDetailsLeft>

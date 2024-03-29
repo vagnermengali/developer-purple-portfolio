@@ -15,7 +15,7 @@ const jost = Jost({
 const Layout = ({ github, linkedin, instagram, name, email, route, children }: any) => {
     return (
         <AnimatePresence mode="wait">
-            <div className={`h-lvh max-h-lvh ${jost.className}`}>
+            <div className={`h-screen max-h-screen ${jost.className}`}>
                 <Header
                     github={github}
                     linkedin={linkedin}
