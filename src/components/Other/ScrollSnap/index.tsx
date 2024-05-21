@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { ScrollSnapProps, SectionScrollSnapProps } from '@/interfaces/ScrollSnapProps/ScrollSnapProps';
 
@@ -102,11 +102,23 @@ const ScrollSnap = ({ main, work, about, contact }: ScrollSnapProps) => {
   return (
     <div ref={containerRef} className="w-screen h-dvh overflow-y-auto snap-y snap-mandatory scroll-smooth">
       <ScrollNavigation onNavigate={onNavigate} currentIndex={currentIndex} sections={sections} />
-      {sections.map((section, index) => (
-        <section key={index} id={section.id} className="snap-start h-dvh w-screen flex justify-center items-center">
-          {section.component}
-        </section>
-      ))}
+      <AnimatePresence>
+        {sections.map((section, index) => (
+          currentIndex === index && (
+            <motion.section
+              key={index}
+              id={section.id}
+              className="snap-start h-dvh w-screen flex justify-center items-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: .6 }}
+            >
+              {section.component}
+            </motion.section>
+          )
+        ))}
+      </AnimatePresence>
     </div>
   );
 };

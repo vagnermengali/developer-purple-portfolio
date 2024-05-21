@@ -83,7 +83,7 @@ const TemplateSlideVertical = ({
         )}
         {link && (
           <>
-            <div className={`top-[58%] sm:top-40 left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
+            <div className={`top-[58%] sm:top-1/2 sm:-translate-y-2/4 left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
               <AnimatedCharactersDetailsLeft duration={1}>
                 <h2 className="w-5/6 text-4xl sm:text-6xl lg:text-8xl text-brand8 font-medium leading-none tracking-widest"> {title} </h2>
               </AnimatedCharactersDetailsLeft>
@@ -150,7 +150,7 @@ const TemplateSlideVertical = ({
         )}
         {details && !home && (
           <>
-            <div className={`top-[58%] sm:top-40 left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
+            <div className={`top-[58%] sm:top-1/2 sm:-translate-y-2/4 left-5 sm:left-20 lg:left-44 flex flex-col justify-center absolute z-20`}>
               <AnimatedCharactersDetailsLeft duration={1}>
                 <h2 className="w-80 lg:w-5/6 text-4xl sm:text-6xl lg:text-8xl text-brand8 font-medium leading-none tracking-widest"> {title} </h2>
               </AnimatedCharactersDetailsLeft>
