@@ -32,7 +32,9 @@ const Header = ({ linkedin, github, instagram, name, route }: HeaderProps) => {
         <>
             <header className={`fixed top-0 w-full flex justify-between items-center py-4 px-5 sm:px-10 sm:py-5 z-50 transition-all duration-300 ease-linear ${isSideBarVisible ? 'bg-transparent' : isScrolled ? 'bg-brand2 bg-opacity-70 backdrop-blur-xl' : 'bg-transparent'}`}>
                 <Link href={"/#main"} className={`h-full text-base md:text-2xl tracking-widest no-underline duration-500 transition-all ${isSideBarVisible ? "text-white hover:text-brand5" : router.pathname === "/about" && !isScrolled || router.pathname === "/work" && !isScrolled ? "text-white hover:text-brand5 sm:text-brand4 sm:hover:text-brand9" : "text-brand4 hover:text-brand9"}`} aria-label="logo">
+                    <h1>
                     {name}
+                    </h1>
                 </Link>
                 <nav className="flex justify-center items-center">
                     <div className="hidden items-center justify-center mr-24 gap-8 sm:flex">
